@@ -58,7 +58,7 @@ export class AuthService {
   async login(email: string, password: string): Promise<void> {
     // Appel API pour se connecter
     const response = await firstValueFrom(
-      this._httpClient.post<LoginResponse>(environment.apiUrl + 'auth/login', {
+      this._httpClient.post<LoginResponse>(environment.apiUrl + 'login', {
         email: email,
         password,
       }),
@@ -70,7 +70,7 @@ export class AuthService {
 
   register(form: UserRegisterForm): Promise<void> {
     // Appel API pour s'enregistrer
-    return firstValueFrom(this._httpClient.post<void>(environment.apiUrl + 'auth/register', form));
+    return firstValueFrom(this._httpClient.post<void>(environment.apiUrl + 'register', form));
   }
 
   logout() {

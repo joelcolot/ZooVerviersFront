@@ -1,1 +1,39 @@
-<p>login-page works!</p>
+<h1>Inscription : </h1>
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="email">Courriel : </label>
+        <input formControlName="email" id="email" type="text">
+        @if(email.touched && email.invalid)
+        {
+            @if (email.getError("required"))
+            {
+                <p class="error">Une adresse est requise.</p>
+            }
+            @if (email.getError("email"))
+            {
+                <p class="error">Ceci n'est pas une adresse valide.</p>
+            }
+        }
+    </div>
+        <div>
+        <label for="password">Mot de passe : </label>
+        <input formControlName="password" id="password" type="password">
+        @if (password.touched && password.invalid)
+        {
+            @if (password.getError("required"))
+            {
+                <p class="error">Le mot de passe est requis.</p>
+            }
+            @else if (password.getError("lowerCase") || password.getError("upperCase") || password.getError("number") || password.getError("tooShort") || password.getError("specialChar"))
+            {
+                <p class="error">Le mot de passez doit au moins contenir huit caractères, une majuscule, une majuscule et un chiffre.</p>
+            }
+        }
+    </div>
+    <button type="submit" [disabled]="loginForm.invalid">Valider</button>
+    @if (loginError)
+    {
+        <p class="error">{{ loginError }}</p>
+    }
+</form>
