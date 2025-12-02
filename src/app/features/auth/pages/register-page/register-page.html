@@ -1,1 +1,47 @@
-<p>register-page works!</p>
+<h1>S'enregistrer</h1>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="firstName">Prénom: </label>
+    <input type="text" id="firstName" formControlName="firstName" />
+    @if (firstName.touched && firstName.invalid) {
+      @if (firstName.getError('required')) {
+        <p>Le prénom est requis.</p>
+      } @else if (firstName.getError('minlength') || firstName.getError('maxlength')) {
+        <p>Le prénom doit contenir de 2 à 50 caractères.</p>
+      }
+    }
+  </div>
+  <div>
+    <label for="lastName">Nom: </label>
+    <input type="text" id="lastName" formControlName="lastName" />
+    @if (lastName.touched && lastName.invalid) {
+      @if (lastName.getError('required')) {
+        <p>Le nom est requis.</p>
+      } @else if (lastName.getError('minlength') || lastName.getError('maxlength')) {
+        <p>Le nom doit contenir de 2 à 50 caractères.</p>
+      }
+    }
+  </div>
+  <div>
+    <label for="email">E-mail: </label>
+    <input type="email" id="email" formControlName="email" />
+    @if (email.touched && email.invalid) {
+      @if (email.getError('required')) {
+        <p>L'e-mail est requis.</p>
+      } @else if (email.getError('email')) {
+        <p>L'e-mail doit respecter la structure suivante: "votrenom@mail.com"</p>
+      }
+    }
+  </div>
+  <div>
+    <label for="password">Mot de passe: </label>
+    <input type="password" id="password" formControlName="password" />
+    @if (password.touched && password.invalid) {
+        <p>Le mot de passe doit contenir au moins 1 minuscule, 1 majuscule, 1 chiffre, 1 caractère spécial et 8 caractères au total.</p>
+    }
+  </div>
+<button type="submit" [disabled]="registerForm.invalid">S'enregistrer</button>
+  @if (registerError) {
+    <p>{{ registerError }}</p>
+  }
+</form>
