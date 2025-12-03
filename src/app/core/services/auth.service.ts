@@ -70,7 +70,7 @@ export class AuthService {
 
   register(form: UserRegisterForm): Promise<void> {
     // Appel API pour s'enregistrer
-    return firstValueFrom(this._httpClient.post<void>(environment.apiUrl + 'register', form));
+    return firstValueFrom(this._httpClient.post<void>(environment.apiUrl + 'api/User/Register', form));
   }
 
   logout() {
