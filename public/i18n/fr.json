@@ -1,0 +1,23 @@
+{
+    "features":
+    {
+        "auth":
+        {
+            "pages":
+            {
+                "login":
+                {
+                    "email-label": "Courriel",
+                    "email-error-required":"Une adresse électronique est requise.",
+                    "email-error-email":"Ceci n'est pas une adresse valide.",
+
+                    "password-label": "Mot de passe",
+                    "password-error-required": "Le mot de passe est requis.",
+                    "password-error-password":"Le mot de passe doit au moins contenir huit caractères, une majuscule, une majuscule et un chiffre.",
+
+                    "button-validate": "Valider"
+                }
+            }
+        }
+    }
+}

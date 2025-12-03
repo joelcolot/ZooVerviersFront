@@ -1,0 +1,23 @@
+{
+    "features":
+    {
+        "auth":
+        {
+            "pages":
+            {
+                "login":
+                {
+                    "email-label": "Email",
+                    "email-error-required":"Alamat email dibutuhake.",
+                    "email-error-email":"Iki dudu alamat sing valid.",
+
+                    "password-label": "Sandi",
+                    "password-error-required": "Sandhi dibutuhake.",
+                    "password-error-password":"Sandi kudu ngemot paling ora wolung karakter, siji huruf gedhe, siji huruf gedhe lan siji angka.",
+
+                    "button-validate": "Kanggo validasi"
+                }
+            }
+        }
+    }
+}

@@ -7,6 +7,10 @@ export const routes: Routes = [
         component: HomePage,
     },
     {
+        path: "auth",
+        loadChildren: () => import('./features/auth/auth.routes').then(z => z.routes)
+    },
+    {
         path: 'register',
         loadComponent: () => import('./features/auth/pages/register-page/register-page').then(y => y.RegisterPage),
     },

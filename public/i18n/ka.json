@@ -1,0 +1,23 @@
+{
+    "features":
+    {
+        "auth":
+        {
+            "pages":
+            {
+                "login":
+                {
+                    "email-label": "ელ. ფოსტა",
+                    "email-error-required":"ელექტრონული ფოსტის მისამართი აუცილებელია.",
+                    "email-error-email":"ეს არ არის სწორი მისამართი.",
+
+                    "password-label": "პაროლი",
+                    "password-error-required": "პაროლი საჭიროა.",
+                    "password-error-password":"პაროლი უნდა შეიცავდეს მინიმუმ რვა სიმბოლოს, ერთ დიდ ასოს, ერთ დიდ ასოს და ერთ ციფრს.",
+
+                    "button-validate": "დასადასტურებლად" 
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "features":
+    {
+        "auth":
+        {
+            "pages":
+            {
+                "login":
+                {
+                    "email-label": "retpoŝto",
+                    "email-error-required":"Retpoŝtadreso estas necesa.",
+                    "email-error-email":"Ĉi tio ne estas valida adreso.",
+
+                    "password-label": "Pasvorto",
+                    "password-error-required": "Pasvorto estas bezonata.",
+                    "password-error-password":"La pasvorto devas enhavi almenaŭ ok signojn, unu majusklan literon, unu majusklan literon kaj unu nombron.",
+
+                    "button-validate": "Por validigi"
+                }
+            }
+        }
+    }
+}

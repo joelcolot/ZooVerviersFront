@@ -1,37 +1,45 @@
 <h1>Inscription : </h1>
+    <select (change)="onSelectLanguage($event)">
+        <option value="fr">Français</option>
+        <option value="en">English</option>
+        <option value="eo">Esperanto</option>
+        <option value="ka">ქართული</option>
+        <option value="jv">Wong Jawa</option>    
+    </select>
+
 
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div>
-        <label for="email">Courriel : </label>
+        <label for="email">{{ "features.auth.pages.login.email-label" | translate}}: </label>
         <input formControlName="email" id="email" type="text">
         @if(email.touched && email.invalid)
         {
             @if (email.getError("required"))
             {
-                <p class="error">Une adresse est requise.</p>
+                <p class="error">{{"features.auth.pages.login.email-error-required"|translate}}</p>
             }
             @if (email.getError("email"))
             {
-                <p class="error">Ceci n'est pas une adresse valide.</p>
+                <p class="error">{{"features.auth.pages.login.email-error-email"|translate}}</p>
             }
         }
     </div>
         <div>
-        <label for="password">Mot de passe : </label>
+        <label for="password">{{"features.auth.pages.login.password-label"|translate}} : </label>
         <input formControlName="password" id="password" type="password">
         @if (password.touched && password.invalid)
         {
             @if (password.getError("required"))
             {
-                <p class="error">Le mot de passe est requis.</p>
+                <p class="error">{{"features.auth.pages.login.password-error-required"|translate}}</p>
             }
             @else if (password.getError("lowerCase") || password.getError("upperCase") || password.getError("number") || password.getError("tooShort") || password.getError("specialChar"))
             {
-                <p class="error">Le mot de passez doit au moins contenir huit caractères, une majuscule, une majuscule et un chiffre.</p>
+                <p class="error">{{"features.auth.pages.login.password-error-password"|translate}}</p>
             }
         }
     </div>
-    <button type="submit" [disabled]="loginForm.invalid">Valider</button>
+    <button type="submit" [disabled]="loginForm.invalid">{{"features.auth.pages.login.button-validate"|translate}}</button>
     @if (loginError)
     {
         <p class="error">{{ loginError }}</p>
