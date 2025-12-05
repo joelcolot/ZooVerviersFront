@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { ApiError } from '@core/models/api-error.model';
 import { AuthService } from '@core/services/auth.service';
 import { strongPasswordValidator } from '@core/validators/strong-password.validator';
-import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login-page',
@@ -16,7 +16,6 @@ export class LoginPage {
     private readonly _fb = inject(FormBuilder);
     private readonly _authService = inject(AuthService);
     private readonly _router = inject(Router);
-    private readonly _translate = inject(TranslateService);
 
     email = new FormControl("", [Validators.required, Validators.email]);
     password = new FormControl("", [Validators.required, strongPasswordValidator()]);
@@ -33,7 +32,10 @@ export class LoginPage {
         {
             try
             {
+                console.log("validation");
+                
                 await this._authService.login(this.loginForm.value.email!, this.loginForm.value.password!);
+                //this._authService.isConnected();
                 this._router.navigate(["/"]);
             }
             catch(err)
@@ -45,14 +47,5 @@ export class LoginPage {
 
     }
 
-
-    onChangeLanguage(lang: string) {
-    this._translate.use(lang);
-  }
-      onSelectLanguage(lang: any) {
-        console.log(lang.target.value);
-        
-    this._translate.use(lang.target.value);
-  }
 
 }

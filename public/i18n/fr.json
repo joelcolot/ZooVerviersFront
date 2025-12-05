@@ -7,17 +7,60 @@
             {
                 "login":
                 {
+                    "firstname-label": "Prénom",
+                    "firstname-error-required": "Le prénom est requis.",
+                    "firstname-error-length": "Le prénom doit contenir de 2 à 50 caractères.",
+
+                    "lastname-label": "Nom de famille",
+                    "lastname-error-required": "Le nom de famille est requis.",
+                    "lastname-error-length": "Le nom doit contenir de 2 à 50 caractères.",
+
                     "email-label": "Courriel",
                     "email-error-required":"Une adresse électronique est requise.",
                     "email-error-email":"Ceci n'est pas une adresse valide.",
 
                     "password-label": "Mot de passe",
                     "password-error-required": "Le mot de passe est requis.",
-                    "password-error-password":"Le mot de passe doit au moins contenir huit caractères, une majuscule, une majuscule et un chiffre.",
-
-                    "button-validate": "Valider"
+                    "password-error-password":"Le mot de passe doit au moins contenir huit caractères, une majuscule, une majuscule et un chiffre."
                 }
             }
+        },
+        "titles":
+        {
+            "main-title":"Le Zoo de Verviers (avec des vrais animaux, si si)!",
+            "register-title": "S'inscrire",
+            "login-title": "Se connecter"
+        },
+        "labels":
+        {
+            "firstname-label": "Prénom",
+            "lastname-label": "Nom de famille",
+            "email-label": "Courriel",
+            "password-label": "Mot de passe",
+            "role-label": "Rôle"
+        },
+        "error":
+        {
+            "not-found-page": "Soit cette page n'existe pas, soit vous n'avez pas le droit d'être ici !"
+        }
+    },
+    "components":
+    {
+        "button":
+        {
+            "validate": "Valider",
+            "login":"Connexion",
+            "register": "Inscription",
+            "logout": "Déconnexion"
+        },
+        "nav-bar":
+        {
+            "nav-item-home": "Accueil",
+            "nav-item-animals": "Animaux",
+            "nav-item-rentals": "Locations",
+            "nav-item-toys": "Jouets",
+            "nav-item-employees": "Employés",
+            "nav-item-users": "Utilisateurs"
         }
     }
 }

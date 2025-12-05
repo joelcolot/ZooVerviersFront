@@ -17,39 +17,53 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
         <li class="nav-item">
-          <a class="nav-link active" routerLink="/">Accueil</a>
+          <a class="nav-link active" routerLink="/">{{ "components.nav-bar.nav-item-home" | translate}}</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/animals">Animaux</a>
+          <a class="nav-link" routerLink="/animals">{{ "components.nav-bar.nav-item-animals" | translate}}</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/rentals">Locations</a>
+          <a class="nav-link" routerLink="/rentals">{{ "components.nav-bar.nav-item-rentals" | translate}}</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/toys">Jouets</a>
+          <a class="nav-link" routerLink="/toys">{{ "components.nav-bar.nav-item-toys" | translate}}</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/employees">Employés</a>
+          <a class="nav-link" routerLink="/employees">{{ "components.nav-bar.nav-item-employees" | translate}}</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/users">Utilisateurs</a>
+          <a class="nav-link" routerLink="/user/My-Account">{{ "components.nav-bar.nav-item-users" | translate}}</a>
         </li>
 
 
 
       </ul>
+      @if (!isConnected())
+      {
+        <button class="btn btn-outline-primary" routerLink="/auth/login">
+          {{ "components.button.login" | translate }}
+        </button>
+        <button class="btn btn-outline-secondary" routerLink="/auth/register">
+          {{ "components.button.register" | translate}}
+        </button>
+      }
+      @else
+      {
+        <button class="btn btn-outline-secondary" routerLink="/" (click)="logout()">{{ "components.button.logout" | translate}}</button>
+      }
 
-      <button class="btn btn-outline-primary" routerLink="/login">
-        Login
-      </button>
-      <button class="btn btn-outline-secondary" routerLink="/register">
-        Register
-      </button>
+      <select (change)="onSelectLanguage($event)">
+        <option value="fr">Français</option>
+        <option value="en">English</option>
+        <option value="eo">Esperanto</option>
+        <option value="ka">ქართული</option>
+        <option value="jv">Wong Jawa</option>    
+    </select>
 
     </div>
 

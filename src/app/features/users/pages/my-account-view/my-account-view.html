@@ -1,0 +1,10 @@
+<p>my-account-view works!</p>
+<button (click)="getAccount()">Lorem</button>
+
+@if (!!myAccount) 
+{
+    <p>{{"features.labels.firstname-label"|translate}}: {{ myAccount.firstName }}</p>
+    <p>{{"features.labels.lastname-label"|translate}}: {{ myAccount.lastName }}</p>
+    <p>{{"features.labels.email-label"|translate}}: {{ myAccount.email }}</p>
+    <p>{{"features.labels.role-label"|translate}}: {{ myAccount.role }}</p>
+}

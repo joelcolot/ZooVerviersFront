@@ -2,19 +2,12 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '@core/services/auth.service';
-
-interface StrongPasswordErrors {
-  lowerCase?: boolean;
-  upperCase?: boolean;
-  number?: boolean;
-  tooShort?: boolean;
-  specialChar?: boolean;
-}
-
+import { strongPasswordValidator } from '@core/validators/strong-password.validator';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register-page',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, TranslatePipe],
   templateUrl: './register-page.html',
   styleUrl: './register-page.scss',
 })
@@ -67,50 +60,4 @@ registerError = '';
         });
     }
   }
-
 }
-function strongPasswordValidator(): import("@angular/forms").ValidatorFn {
-  return (control) => {
-    const value = control.value;
-
-    // traitement
-
-    const resultat: StrongPasswordErrors = {};
-
-    // lowecase
-    const lowerCaseRegex = /.*?[a-z]/;
-    if (!lowerCaseRegex.test(value)) {
-      resultat.lowerCase = true;
-    }
-
-    // uppercase
-    const upperCaseRegex = /.*?[A-Z]/;
-    if (!upperCaseRegex.test(value)) {
-      resultat.upperCase = true;
-    }
-
-    // number
-    const numberRegex = /.*?[0-9]/;
-    if (!numberRegex.test(value)) {
-      resultat.number = true;
-    }
-
-    // special char
-    const specialCharRegex = /.*?[\W_]/;
-    if (!specialCharRegex.test(value)) {
-      resultat.specialChar = true;
-    }
-
-    // min length 8
-    if (value?.length < 8) {
-      resultat.tooShort = true;
-    }
-
-    // si on a des erreurs, on les retourne
-    if (Object.keys(resultat).length > 0) {
-      return resultat;
-    }
-
-    // strong password
-    return null;
-}}

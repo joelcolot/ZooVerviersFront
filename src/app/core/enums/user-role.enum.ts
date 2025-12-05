@@ -6,5 +6,6 @@ export enum UserRole {
     Guide = "guide",
     Treasurer = "treasurer",
     Other = "other",
+    Client = "Client",
     User = "user"
 }

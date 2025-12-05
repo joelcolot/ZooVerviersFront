@@ -1,47 +1,47 @@
-<h1>S'enregistrer</h1>
+<h2>{{ "features.titles.register-title" | translate }}: </h2>
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   <div>
-    <label for="firstName">Prénom: </label>
+    <label for="firstName">{{"features.labels.firstname-label"|translate}}: </label>
     <input type="text" id="firstName" formControlName="firstName" />
     @if (firstName.touched && firstName.invalid) {
       @if (firstName.getError('required')) {
-        <p>Le prénom est requis.</p>
+        <p class="error">{{"features.auth.pages.login.firstname-error-required"|translate}}</p>
       } @else if (firstName.getError('minlength') || firstName.getError('maxlength')) {
-        <p>Le prénom doit contenir de 2 à 50 caractères.</p>
+        <p class="error">{{"features.auth.pages.login.firstname-error-length"|translate}}</p>
       }
     }
   </div>
   <div>
-    <label for="lastName">Nom: </label>
+    <label for="lastName">{{"features.labels.lastname-label"|translate}}: </label>
     <input type="text" id="lastName" formControlName="lastName" />
     @if (lastName.touched && lastName.invalid) {
       @if (lastName.getError('required')) {
-        <p>Le nom est requis.</p>
+        <p class="error">{{"features.auth.pages.login.lastname-error-required"|translate}}</p>
       } @else if (lastName.getError('minlength') || lastName.getError('maxlength')) {
-        <p>Le nom doit contenir de 2 à 50 caractères.</p>
+        <p class="error">{{"features.auth.pages.login.lastname-error-length"|translate}}</p>
       }
     }
   </div>
   <div>
-    <label for="email">E-mail: </label>
+    <label for="email">{{ "features.labels.email-label" | translate}}: </label>
     <input type="email" id="email" formControlName="email" />
     @if (email.touched && email.invalid) {
       @if (email.getError('required')) {
-        <p>L'e-mail est requis.</p>
+        <p class="error">{{"features.auth.pages.login.email-error-required"|translate}}</p>
       } @else if (email.getError('email')) {
-        <p>L'e-mail doit respecter la structure suivante: "votrenom@mail.com"</p>
+        <p class="error">{{"features.auth.pages.login.email-error-email"|translate}}</p>
       }
     }
   </div>
   <div>
-    <label for="password">Mot de passe: </label>
+    <label for="password">{{"features.labels.password-label"|translate}}: </label>
     <input type="password" id="password" formControlName="password" />
     @if (password.touched && password.invalid) {
-        <p>Le mot de passe doit contenir au moins 1 minuscule, 1 majuscule, 1 chiffre, 1 caractère spécial et 8 caractères au total.</p>
+        <p class="error">{{"features.auth.pages.login.password-error-password"|translate}}</p>
     }
   </div>
-<button type="submit" [disabled]="registerForm.invalid">S'enregistrer</button>
+<button type="submit" [disabled]="registerForm.invalid">{{"components.button.validate"|translate}}</button>
   @if (registerError) {
-    <p>{{ registerError }}</p>
+    <p class="error">{{ registerError }}</p>
   }
 </form>

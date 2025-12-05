@@ -12,11 +12,15 @@ export const routes: Routes = [
         loadChildren: () => import('./features/auth/auth.routes').then(z => z.routes)
     },
     {
-        path: 'register',
-        loadComponent: () => import('./features/auth/pages/register-page/register-page').then(y => y.RegisterPage),
+        path: "user",
+        loadChildren: () => import('./features/users/users.routes').then(z => z.routes),
     },
     {
-        path: "login",
-        loadComponent: () => import('./features/auth/pages/login-page/login-page').then(y => y.LoginPage),
+        path: "error",
+        loadChildren: () => import('./features/errors/error.routes').then(z => z.routes),
+    },
+    {
+        path: "**",
+        redirectTo: "error/404",
     },
 ];

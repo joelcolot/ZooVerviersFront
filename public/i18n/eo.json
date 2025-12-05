@@ -7,17 +7,60 @@
             {
                 "login":
                 {
-                    "email-label": "retpoŝto",
+                    "email-label": "Retpoŝto",
                     "email-error-required":"Retpoŝtadreso estas necesa.",
                     "email-error-email":"Ĉi tio ne estas valida adreso.",
 
+                    "firstname-label": "Antaŭnomo",
+                    "firstname-error-required": "Antaŭnomo estas necesa.",
+                    "firstname-error-length": "La antaŭnomo devas enhavi inter 2 kaj 50 signojn.",
+
+                    "lastname-label": "Familia nomo",
+                    "lastname-error-required": "Familia nomo estas necesa.",
+                    "lastname-error-length": "La nomo devas enhavi inter 2 kaj 50 signojn.",
+
                     "password-label": "Pasvorto",
                     "password-error-required": "Pasvorto estas bezonata.",
-                    "password-error-password":"La pasvorto devas enhavi almenaŭ ok signojn, unu majusklan literon, unu majusklan literon kaj unu nombron.",
-
-                    "button-validate": "Por validigi"
+                    "password-error-password":"La pasvorto devas enhavi almenaŭ ok signojn, unu majusklan literon, unu majusklan literon kaj unu nombron."
                 }
             }
+        },
+        "titles":
+        {
+            "main-title":"La bestoĝardeno de Verviers (kun veraj bestoj, jes ja)!",
+            "register-title": "Registri",
+            "login-title": "Ensaluti"
+        },
+        "labels":
+        {
+            "firstname-label": "Antaŭnomo",
+            "lastname-label": "Familia nomo",
+            "email-label": "Retpoŝto",
+            "password-label": "Pasvorto",
+            "role-label": "Rolo"
+        },
+        "error":
+        {
+            "not-found-page": "Aŭ ĉi tiu paĝo ne ekzistas, aŭ vi ne rajtas esti ĉi tie!"
+        }
+    },
+    "components":
+    {
+        "button":
+        {
+            "validate": "Por validigi",
+            "login":"Ensaluti",
+            "register": "Registrado",
+            "logout": "Elsaluti"
+        },
+        "nav-bar":
+        {
+            "nav-item-home":"Bonvenon",
+            "nav-item-animals": "Bestoj",
+            "nav-item-rentals": "Lokoj",
+            "nav-item-toys": "Ludiloj",
+            "nav-item-employees": "Dungitoj",
+            "nav-item-users": "Uzantoj"
         }
     }
 }
