@@ -12,13 +12,14 @@ export class AnimalsService {
   
   private readonly _httpClient = inject(HttpClient);
 
-  getAnimals(page: number = 1) :Promise<AnimalsListing[]> {
+  getAnimals(page: number = 0, sizePage :number = 5) :Promise<AnimalsListing[]> {
 
     return firstValueFrom(
        this._httpClient.get<AnimalsListing[]>(environment.apiUrl + 'api/Animal', {
-      //this._httpClient.get<ApiResponseList<AnimalsListing>>(environment.apiUrl + 'animals', {
+
         params: {
           page: page,
+          sizePage: sizePage,
         },
       }),
     );
