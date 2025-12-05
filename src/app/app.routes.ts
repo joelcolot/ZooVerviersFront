@@ -19,4 +19,8 @@ export const routes: Routes = [
         path: "login",
         loadComponent: () => import('./features/auth/pages/login-page/login-page').then(y => y.LoginPage),
     },
+    {
+        path: "animals",
+        loadChildren: () => import('./features/animals/animals.routes').then(z => z.routes)
+    }
 ];

@@ -14,44 +14,24 @@
     <!-- Menu collapsé -->
     <div class="collapse navbar-collapse" [ngbCollapse]="isCollapsed">
 
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="/">Accueil</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/animals">Animaux</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/rentals">Locations</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/toys">Jouets</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/employees">Employés</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/users">Utilisateurs</a>
-        </li>
-
-
-
-      </ul>
-
-      <button class="btn btn-outline-primary" routerLink="/login">
-        Login
-      </button>
-      <button class="btn btn-outline-secondary" routerLink="/register">
-        Register
-      </button>
-
+      <button class="m-1 btn button" routerLink=""> 🛖Accueil</button>
+      <button class="m-1 btn button" routerLink="animals"> 🦁Animaux</button>
+      <button class="m-1 btn button" routerLink="animals"> 📤Prêts</button>
+      <button class="m-1 btn button" routerLink="animals"> 📥Emprunts</button>
+      <button class="m-1 btn button" routerLink="animals"> 🧸Jouets</button>
+      <button class="m-1 btn button" routerLink="animals"> 🤠Employés</button>
+      <button class="m-1 btn button" routerLink="animals"> 👨‍👩‍👧‍👦Utilisateurs</button>
+      <div class="ms-auto">
+        <button class="btn btn-outline-primary" routerLink="/login">
+          Login
+        </button>
+        <button id ="btn" class="btn btn-outline-secondary" routerLink="/register">
+          Register
+        </button>
+      </div>
     </div>
 
   </div>
 </nav>
+
+

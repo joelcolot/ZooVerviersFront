@@ -1,0 +1,41 @@
+@if (animals != null) {
+        <ul>
+            @for (animal of animals; track $index) {
+                
+                <div class="container">
+                <div class="row align-items-center border p-3 rounded">
+
+                    
+                    <div class="col-3">
+                    <img [src]="'https://localhost:7039/pictures/' + animal.name + '_1.jpg'" class="img-fluid rounded" alt="Animal">
+                    </div>
+
+                    <div class="col-5">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between">
+                        <strong>Nom</strong> <span> {{ animal.name }} </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                        <strong>Espèce</strong> <span>{{ animal.speciesName }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                        <strong>Sexe</strong> <span>{{ animal.sex }}</span>
+                        </li>
+                    </ul>
+                    </div>
+
+                    <div class="col-4 text-end">
+                    <button class="btn btn-primary mb-2">Détails</button><br>
+                    <button class="btn btn-secondary mb-2">Modifier</button><br>
+                    <button class="btn btn-danger">Supprimer</button>
+                    </div>
+
+                </div>
+                </div>
+            }
+  </ul>
+} @else if (animalsError) {
+  <p>{{ animalsError }}</p>
+} @else {
+  <p>Loading animals...</p>
+}
