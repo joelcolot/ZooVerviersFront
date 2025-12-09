@@ -7,19 +7,15 @@
             {
                 "login":
                 {
-                    "firstname-label": "სახელი",
                     "firstname-error-required": "სახელი სავალდებულოა.",
                     "firstname-error-length": "სახელი უნდა შეიცავდეს 2-დან 50 სიმბოლომდე.",
 
-                    "lastname-label": "გვარი",
                     "lastname-error-required": "გვარი სავალდებულოა.",
                     "lastname-error-length": "სახელი უნდა შეიცავდეს 2-დან 50 სიმბოლომდე.",
 
-                    "email-label": "ელ. ფოსტა",
                     "email-error-required":"ელექტრონული ფოსტის მისამართი აუცილებელია.",
                     "email-error-email":"ეს არ არის სწორი მისამართი.",
 
-                    "password-label": "პაროლი",
                     "password-error-required": "პაროლი საჭიროა.",
                     "password-error-password":"პაროლი უნდა შეიცავდეს მინიმუმ რვა სიმბოლოს, ერთ დიდ ასოს, ერთ დიდ ასოს და ერთ ციფრს." 
                 }
@@ -47,7 +43,10 @@
             "lastname-label": "გვარი",
             "email-label": "ელ. ფოსტა",
             "password-label": "პაროლი",
-            "role-label": "როლი"
+            "role-label": "როლი",
+            "name-label": "სახელი",
+            "species-label": "სახეობები",
+            "sex-label": "სექსი"
         },
         "error":
         {

@@ -7,19 +7,15 @@
             {
                 "login":
                 {
-                    "firstname-label": "First name",
                     "firstname-error-required": "The first name is required.",
                     "firstname-error-length": "The first name must be between 2 and 50 characters long.",
-                    
-                    "lastname-label": "Last name",
+
                     "lastname-error-required": "The last name is required.",
                     "lastname-error-length": "The last name must be between 2 and 50 characters long.",
-                    
-                    "email-label": "Email",
+
                     "email-error-required":"Email is required.",
                     "email-error-email":"This is not a valid email.",
 
-                    "password-label": "Password",
                     "password-error-required": "A password is required.",
                     "password-error-password":"The password must be 8 or more characters long and contain a number and an uppercase, a lowercase and a special character."
                 }
@@ -47,7 +43,10 @@
             "lastname-label": "Last name",
             "email-label": "Email",
             "password-label": "Password",
-            "role-label": "Role"
+            "role-label": "Role",
+            "name-label": "Name",
+            "species-label": "Species",
+            "sex-label": "Sex"
         }
     },
     "components":

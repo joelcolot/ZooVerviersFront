@@ -48,6 +48,9 @@
             "email-label": "Courriel" => {{"features.labels.email-label"|translate}}
             "password-label": "Mot de passe" => {{"features.labels.password-label"|translate}}
             "role-label": "Rôle" => {{"features.labels.role-label"|translate}}
+            "name-label": "Nom" => {{"features.labels.name-label"|translate}}
+            "species-label": "Espèce" => {{"features.labels.species-label"|translate}}
+            "sex-label": "Sexe" => {{"features.labels.sex-label"|translate}}
         },
         "error":
         {

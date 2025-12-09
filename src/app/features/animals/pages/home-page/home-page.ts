@@ -3,11 +3,18 @@ import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home-page',
-  imports: [TranslatePipe],
+  imports: [],
   templateUrl: './home-page.html',
   styleUrl: './home-page.scss',
 })
 export class HomePage {
     vvsLogoUrl:string="assets/zoo/VVS_Logo.jpg"
-    //zooPicture1Url:string="assets/zoo/Picture_zoo_1.webp"
+    pictures: string[]=[
+      "assets/home-page/HérissonGrosPlan.jpg", 
+      "assets/home-page/Couple de lynx.avif",
+      "assets/home-page/Belette_et_son_terrier.jpg",
+      "assets/home-page/Louve_et_ses_louveteaux.jpg"
+    ];
+    zooPicture1Url:string="assets/home-page/Louve_et_ses_louveteaux.jpg"
+
 }

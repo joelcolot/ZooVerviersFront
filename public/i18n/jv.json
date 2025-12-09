@@ -7,19 +7,15 @@
             {
                 "login":
                 {
-                    "firstname-label": "Jeneng ngarep",
                     "firstname-error-required": "Jeneng ngarep dibutuhake.",
                     "firstname-error-length": "Jeneng ngarep kudu ngemot antarane 2 nganti 50 karakter.",
 
-                    "lastname-label": "Jeneng kulawarga",
                     "lastname-error-required": "Jeneng mburi dibutuhake.",
                     "lastname-error-length": "Jeneng kudu ngemot antarane 2 lan 50 karakter.",
 
-                    "email-label": "Email",
                     "email-error-required":"Alamat email dibutuhake.",
                     "email-error-email":"Iki dudu alamat sing valid.",
 
-                    "password-label": "Sandi",
                     "password-error-required": "Sandhi dibutuhake.",
                     "password-error-password":"Sandi kudu ngemot paling ora wolung karakter, siji huruf gedhe, siji huruf gedhe lan siji angka."
                 }
@@ -47,7 +43,10 @@
             "lastname-label": "Jeneng kulawarga",
             "email-label": "Email",
             "password-label": "Sandi",
-            "role-label": "Peran"
+            "role-label": "Peran",
+            "name-label": "Jeneng",
+            "species-label": "Spesies",
+            "sex-label": "Seks"
         },
         "error":
         {
