@@ -1,0 +1,55 @@
+<div class="container my-4">
+  @if (animal) {
+    <div class="card shadow-sm">
+      <div class="row g-0">
+
+        <!-- Colonne gauche : photos -->
+        <div class="col-md-5 border-end">
+          <div class="p-3 text-center">
+            <img
+              [src]="'https://localhost:7039/pictures/' + animal.name + '_1.jpg'"
+              class="img-fluid rounded mb-2 cursor-pointer"
+              alt="{{ animal.name }}"
+            />
+          </div>
+        </div>
+
+        <!-- Colonne droite : infos -->
+        <div class="col-md-7">
+          <div class="card-body">
+
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <h3 class="card-title mb-0">{{ animal.name }}</h3>
+
+            </div>
+
+            <p class="text-muted mb-10">
+              Espèce : {{ animal.speciesName }} <br />
+              Sexe : {{ animal.sex }}<br />
+              Propriétaire : {{ animal.ownerName}} <br />
+              Actuellement présent : {{animal.isAvailable}} <br />
+              Date de naissance : {{animal.birthDate | date:'dd/MM/yyyy' }} <br />
+              Age : {{age}} <br /><br />
+
+            @if (description) {
+              <p class="card-text mb-3">
+                {{ description }}
+              </p>
+            }
+
+            <div class="d-flex gap-10">
+
+              <button class="btn btn-outline-secondary" [routerLink]="['/animals']">
+                ⟵ Retour à la liste
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  }
+</div>
+
+

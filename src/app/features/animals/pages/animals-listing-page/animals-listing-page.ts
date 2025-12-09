@@ -1,13 +1,13 @@
 import { JsonPipe } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { AnimalsListing } from '@core/models/animals-listing.model';
 import { ApiError } from '@core/models/api-error.model';
 import { AnimalsService } from '@core/services/animals.service';
 
 @Component({
   selector: 'app-animals-listing-page',
-  imports: [JsonPipe],
+  imports: [JsonPipe, RouterModule],
   templateUrl: './animals-listing-page.html',
   styleUrl: './animals-listing-page.scss',
 })
@@ -20,23 +20,41 @@ export class AnimalsListingPage implements OnInit {
   animals: AnimalsListing[] | null = null;
   animalsError: string | null = null;
 
+  id :number = 1;
   page :number = 1;
   pageSize :number = 5;
   pageSizeOptions :number[] = [5,10,25,50];
+  wrongsizePage :boolean = false;
 
   ngOnInit(): void {
 
     const qp = this._route.snapshot.queryParams;
     this.page = Number(qp['page']) || 1;
-    this.page = Number(qp['pageSize']) || 5;
+    this.pageSize = Number(qp['pageSize']) || 5;
 
     this.getAnimals();
   }
 
   async getAnimals(): Promise<void> {
+
+    
+
     try {
-      // API reste en 0-based : page - 1
+      
       const response = await this._animalsService.getAnimals(this.page - 1, this.pageSize);
+      
+ 
+      if (response.length !== this.pageSize) {
+        console.warn("Le backend ne renvoie pas le bon nombre !");
+        this.wrongsizePage = true;
+      } 
+      else 
+      {
+        this.wrongsizePage = false;
+      }
+
+
+
       this.animals = response;
       this.animalsError = null;
     } catch (err) {
@@ -46,7 +64,7 @@ export class AnimalsListingPage implements OnInit {
     }
   }
 
-  // clic sur "Précédent" / "Suivant"
+  
   goToPage(page: number): void {
     if (page < 1) return;
 
@@ -59,17 +77,17 @@ export class AnimalsListingPage implements OnInit {
         page: this.page,
         pageSize: this.pageSize,
       },
-      // pas besoin de queryParamsHandling ici, on écrase juste page/pageSize
+
     });
   }
 
-  // changement du select "# par page"
+ 
   changePageSize(event: Event): void {
     const value = Number((event.target as HTMLSelectElement).value);
     if (!value) return;
 
     this.pageSize = value;
-    this.page = 1;  // retour page 1
+    this.page = 1;  
     this.getAnimals();
 
     this._router.navigate([], {
@@ -79,5 +97,13 @@ export class AnimalsListingPage implements OnInit {
         pageSize: this.pageSize,
       },
     });
+  }
+
+  async createAnimal() :Promise<void> {
+    
+
+
+
+    
   }
 }
