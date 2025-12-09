@@ -11,8 +11,7 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 })
 export class App implements OnInit {
   protected readonly title = signal('ZooVerviers');
-
-    private readonly _translate = inject(TranslateService);
+  private readonly _translate = inject(TranslateService);
 
   ngOnInit(): void {
     // Définition des langues disponibles

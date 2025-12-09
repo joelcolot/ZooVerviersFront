@@ -1,10 +1,40 @@
-<p>my-account-view works!</p>
-<button (click)="getAccount()">Lorem</button>
+<!-- <button (click)="getAccount()">Lorem</button> -->
 
 @if (!!myAccount) 
 {
-    <p>{{"features.labels.firstname-label"|translate}}: {{ myAccount.firstName }}</p>
-    <p>{{"features.labels.lastname-label"|translate}}: {{ myAccount.lastName }}</p>
-    <p>{{"features.labels.email-label"|translate}}: {{ myAccount.email }}</p>
-    <p>{{"features.labels.role-label"|translate}}: {{ myAccount.role }}</p>
+    <table>
+        <tr class="hidden">
+            <th class="hidden">Name</th>
+            <th class="hidden">Value</th>
+        </tr>
+        <tr>
+            <td class="data-title">{{"features.labels.firstname-label"|translate}}</td>
+            <td>{{ myAccount.firstName }}</td>
+        </tr>
+        <tr>
+            <td class="data-title">{{"features.labels.lastname-label"|translate}}</td>
+            <td>{{ myAccount.lastName }}</td>
+        </tr>
+        <tr>
+            <td class="data-title">{{"features.labels.email-label"|translate}}</td>
+            <td>{{ myAccount.email }}</td>
+        </tr>
+        <tr>
+            <td class="data-title">{{"features.labels.role-label"|translate}}</td>
+            <td>{{ myAccount.role }}</td>
+        </tr>
+    </table>
+    <div>
+        <button (click)="editUserAccount()" [hidden]="isHidden">{{ "components.button.modify" | translate}}</button>
+        <button [hidden]="isHidden" [disabled]="true">{{ "components.button.change-password" | translate}}</button>
+        <button (click)="deleteUserConfirmation()" [hidden]="isHidden">{{ "components.button.delete" | translate}}</button>
+        <div [hidden]="!isHidden">
+            <p>{{ "features.users.pages.my-account.confirm-deletion" | translate }}</p>
+            <label for="password">{{ "features.labels.password-label" | translate}}*: </label>
+            <input type="text">
+        </div>
+        <button (click)="cancelDeletion()" [hidden]="!isHidden">{{"components.button.cancel"|translate}}</button>
+        <button (click)="deleteUserDefinitive()" [hidden]="!isHidden">{{ "components.button.validate" | translate}}</button>
+        <p [hidden]="!isHidden">* Pas encore implémenté...</p>
+    </div>
 }

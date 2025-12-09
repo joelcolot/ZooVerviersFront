@@ -25,6 +25,16 @@
                 }
             }
         },
+        "users":
+        {
+            "pages":
+            {
+                "my-account":
+                {
+                    "confirm-deletion":"Voulez-vous réellement supprimer votre compte ? Cette action sera définitive."
+                }
+            }
+        },
         "titles":
         {
             "main-title":"Le Zoo de Verviers (avec des vrais animaux, si si)!",
@@ -49,9 +59,15 @@
         "button":
         {
             "validate": "Valider",
+            "cancel": "Annuler",
             "login":"Connexion",
             "register": "Inscription",
-            "logout": "Déconnexion"
+            "logout": "Déconnexion",
+            "details": "Détails",
+            "modify": "Modifier",
+            "delete": "Supprimer",
+            "back-to-list":"Retour à la liste",
+            "change-password": "Changer mdp"
         },
         "nav-bar":
         {

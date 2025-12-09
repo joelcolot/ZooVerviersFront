@@ -25,6 +25,16 @@
                 }
             }
         },
+        "users":
+        {
+            "pages":
+            {
+                "my-account":
+                {
+                    "confirm-deletion":"Apa panjenengan pancen pengin mbusak akun panjenengan? Tindakan iki bakal permanen."
+                }
+            }
+        },
         "titles":
         {
             "main-title":"Kebun Binatang Verviers (karo kewan asli, ya pancen)!",
@@ -49,9 +59,15 @@
         "button":
         {
             "validate": "Kanggo validasi",
+            "cancel": "Batal",
             "login":"Mlebu",
             "register": "Registrasi",
-            "logout": "Metu"
+            "logout": "Metu",
+            "details": "Rincian",
+            "modify": "Kanggo ngowahi",
+            "delete": "Mbusak",
+            "back-to-list":"Bali menyang dhaptar",
+            "change-password": "Ganti sandhi"
         },
         "nav-bar":
         {

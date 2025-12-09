@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '@core/services/auth.service';
+import { PasswordMatch } from '@core/validators/passwords-match.validator';
 import { strongPasswordValidator } from '@core/validators/strong-password.validator';
 import { TranslatePipe } from '@ngx-translate/core';
 
@@ -29,12 +30,14 @@ lastName = new FormControl('', [
 ]);
 email = new FormControl('', [Validators.required, Validators.email]);
 password = new FormControl('', [Validators.required, strongPasswordValidator()]);
+validatePassword = new FormControl('', [Validators.required]);
 
 registerForm = this._fb.group({
   firstName: this.firstName,
   lastName: this.lastName,
   email: this.email,
   password: this.password,
+  //validatePassword: this.validatePassword,
 })
 
 
@@ -55,9 +58,10 @@ registerError = '';
           this._router.navigate(['/auth/login']);
         })
         .catch((err) => {
+          
           console.error(err);
           this.registerError = err.message;
         });
-    }
+      }
   }
 }

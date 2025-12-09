@@ -25,6 +25,16 @@
                 }
             }
         },
+        "users":
+        {
+            "pages":
+            {
+                "my-account":
+                {
+                    "confirm-deletion":"Ĉu vi vere volas forigi vian konton? Ĉi tiu ago estos permanenta."
+                }
+            }
+        },
         "titles":
         {
             "main-title":"La bestoĝardeno de Verviers (kun veraj bestoj, jes ja)!",
@@ -49,9 +59,15 @@
         "button":
         {
             "validate": "Por validigi",
+            "cancel": "Nuligi",
             "login":"Ensaluti",
             "register": "Registrado",
-            "logout": "Elsaluti"
+            "logout": "Elsaluti",
+            "details": "Detaloj",
+            "modify": "Modifi",
+            "delete": "Forigi",
+            "back-to-list":"Reen al la listo",
+            "change-password": "Ŝanĝi pasvorton"
         },
         "nav-bar":
         {

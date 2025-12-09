@@ -18,7 +18,7 @@ export class LoginPage {
     private readonly _router = inject(Router);
 
     email = new FormControl("", [Validators.required, Validators.email]);
-    password = new FormControl("", [Validators.required, strongPasswordValidator()]);
+    password = new FormControl("", [Validators.required]);
     loginForm = this._fb.group({
         email:this.email,
         password:this.password,

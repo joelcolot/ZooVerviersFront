@@ -1,7 +1,10 @@
 div {
     margin : 10px;
 }
-
+.whole-form
+{
+    border: 1px solid forestgreen;
+}
 h1, h2
 {
     text-decoration-line: underline;
@@ -12,4 +15,13 @@ h1, h2
 {
     color: red;
     font-size: small;
+}
+button
+{
+    margin-left: 10px;
+    padding: 2px 6px;
+    border-radius: 8px;
+    color: #61C250;
+    background-color: #00685B;
+    font-weight: bold;
 }

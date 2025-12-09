@@ -1,23 +1,24 @@
 <h2>{{ "features.titles.register-title" | translate }}: </h2>
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="firstName">{{"features.labels.firstname-label"|translate}}: </label>
-    <input type="text" id="firstName" formControlName="firstName" />
-    @if (firstName.touched && firstName.invalid) {
-      @if (firstName.getError('required')) {
-        <p class="error">{{"features.auth.pages.login.firstname-error-required"|translate}}</p>
-      } @else if (firstName.getError('minlength') || firstName.getError('maxlength')) {
-        <p class="error">{{"features.auth.pages.login.firstname-error-length"|translate}}</p>
+  <div class="whole-form">
+    <div>
+      <label for="firstName">{{"features.labels.firstname-label"|translate}}: </label>
+      <input type="text" id="firstName" formControlName="firstName" />
+      @if (firstName.touched && firstName.invalid) {
+        @if (firstName.getError('required')) {
+          <p class="error">{{"features.auth.pages.login.firstname-error-required"|translate}}</p>
+        } @else if (firstName.getError('minlength') || firstName.getError('maxlength')) {
+          <p class="error">{{"features.auth.pages.login.firstname-error-length"|translate}}</p>
+        }
       }
-    }
-  </div>
-  <div>
-    <label for="lastName">{{"features.labels.lastname-label"|translate}}: </label>
-    <input type="text" id="lastName" formControlName="lastName" />
-    @if (lastName.touched && lastName.invalid) {
-      @if (lastName.getError('required')) {
-        <p class="error">{{"features.auth.pages.login.lastname-error-required"|translate}}</p>
-      } @else if (lastName.getError('minlength') || lastName.getError('maxlength')) {
+    </div>
+    <div>
+      <label for="lastName">{{"features.labels.lastname-label"|translate}}: </label>
+      <input type="text" id="lastName" formControlName="lastName" />
+      @if (lastName.touched && lastName.invalid) {
+        @if (lastName.getError('required')) {
+          <p class="error">{{"features.auth.pages.login.lastname-error-required"|translate}}</p>
+        } @else if (lastName.getError('minlength') || lastName.getError('maxlength')) {
         <p class="error">{{"features.auth.pages.login.lastname-error-length"|translate}}</p>
       }
     }
@@ -37,10 +38,11 @@
     <label for="password">{{"features.labels.password-label"|translate}}: </label>
     <input type="password" id="password" formControlName="password" />
     @if (password.touched && password.invalid) {
-        <p class="error">{{"features.auth.pages.login.password-error-password"|translate}}</p>
+      <p class="error">{{"features.auth.pages.login.password-error-password"|translate}}</p>
     }
   </div>
-<button type="submit" [disabled]="registerForm.invalid">{{"components.button.validate"|translate}}</button>
+</div>
+  <button type="submit" [disabled]="registerForm.invalid">{{"components.button.validate"|translate}}</button>
   @if (registerError) {
     <p class="error">{{ registerError }}</p>
   }

@@ -25,6 +25,16 @@
                 }
             }
         },
+        "users":
+        {
+            "pages":
+            {
+                "my-account":
+                {
+                    "confirm-deletion":"Are you certain you want to delete your account page? This action is definitive."
+                }
+            }
+        },
         "titles":
         {
             "main-title":"Verviers' zoo (with real animals, fr fr)!",
@@ -45,9 +55,15 @@
         "button":
         {
             "validate": "Validate",
+            "cancel": "Cancel",
             "login":"Login",
             "register": "Register",
-            "logout": "Logout"
+            "logout": "Logout",
+            "details": "Details",
+            "modify": "Modify",
+            "delete": "Delete",
+            "back-to-list":"Back to the list",
+            "change-password": "Change password"
         },
         "nav-bar":
         {

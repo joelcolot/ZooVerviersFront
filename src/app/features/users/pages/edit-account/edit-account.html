@@ -1,0 +1,17 @@
+<p>edit-account works!</p>
+
+<form [formGroup]="editForm" (ngSubmit)="onEdit()">
+    <div>
+        <label for="firstName">{{"features.labels.firstname-label"|translate}}</label>
+        <input type="text" formControlName="firstName" id="firstName">
+    </div>
+        <div>
+        <label for="lastName">{{"features.labels.lastname-label"|translate}}</label>
+        <input type="text" formControlName="lastName" id="lastName">
+    </div>
+        <div>
+        <label for="password">{{"features.labels.password-label"|translate}}</label>
+        <input type="password" formControlName="password" id="password">
+    </div>
+    <button type="submit">{{ "components.button.validate" | translate}}</button>
+</form>

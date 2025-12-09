@@ -57,7 +57,7 @@
         <button class="btn btn-outline-secondary" routerLink="/" (click)="logout()">{{ "components.button.logout" | translate}}</button>
       }
 
-      <select (change)="onSelectLanguage($event)">
+      <select class="language-choice" (change)="onSelectLanguage($event)">
         <option value="fr">Français</option>
         <option value="en">English</option>
         <option value="eo">Esperanto</option>

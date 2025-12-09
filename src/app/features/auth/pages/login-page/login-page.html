@@ -1,43 +1,37 @@
 <h2>{{ "features.titles.login-title" | translate}}: </h2>
-    <!-- <select (change)="onSelectLanguage($event)">
-        <option value="fr">Français</option>
-        <option value="en">English</option>
-        <option value="eo">Esperanto</option>
-        <option value="ka">ქართული</option>
-        <option value="jv">Wong Jawa</option>    
-    </select> -->
-
 
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label for="email">{{ "features.labels.email-label" | translate}}: </label>
-        <input formControlName="email" id="email" type="text">
-        @if(email.touched && email.invalid)
-        {
-            @if (email.getError("required"))
-            {
-                <p class="error">{{"features.auth.pages.login.email-error-required"|translate}}</p>
-            }
-            @if (email.getError("email"))
-            {
-                <p class="error">{{"features.auth.pages.login.email-error-email"|translate}}</p>
-            }
-        }
-    </div>
+    <div class="whole-form">
         <div>
-        <label for="password">{{"features.labels.password-label"|translate}}: </label>
-        <input formControlName="password" id="password" type="password">
-        @if (password.touched && password.invalid)
-        {
+            <label for="email">{{ "features.labels.email-label" | translate}}: </label>
+            <input formControlName="email" id="email" type="text">
+            @if(email.touched && email.invalid)
+            {
+                @if (email.getError("required"))
+                {
+                    <p class="error">{{"features.auth.pages.login.email-error-required"|translate}}</p>
+                }
+                @if (email.getError("email"))
+                {
+                    <p class="error">{{"features.auth.pages.login.email-error-email"|translate}}</p>
+                }
+            }
+        </div>
+        <div>
+            <label for="password">{{"features.labels.password-label"|translate}}: </label>
+            <input formControlName="password" id="password" type="password">
+            @if (password.touched && password.invalid)
+            {
             @if (password.getError("required"))
             {
                 <p class="error">{{"features.auth.pages.login.password-error-required"|translate}}</p>
             }
-            @else if (password.getError("lowerCase") || password.getError("upperCase") || password.getError("number") || password.getError("tooShort") || password.getError("specialChar"))
+            <!-- @else if (password.getError("lowerCase") || password.getError("upperCase") || password.getError("number") || password.getError("tooShort") || password.getError("specialChar"))
             {
                 <p class="error">{{"features.auth.pages.login.password-error-password"|translate}}</p>
-            }
+            } -->
         }
+        </div>
     </div>
     <button type="submit" [disabled]="loginForm.invalid">{{"components.button.validate"|translate}}</button>
     @if (loginError)
