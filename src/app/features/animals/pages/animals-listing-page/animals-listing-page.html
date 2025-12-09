@@ -1,0 +1,94 @@
+
+
+@if (animals != null) {
+  <ul>
+          <div class="container">
+            
+          <div class="row align-items-center border p-3 rounded">
+            <button class="btn btn-success" (click)="createAnimal()">Créer un nouvel animal</button>
+          </div>
+          </div>
+
+      @for (animal of animals; track id) {
+          
+          <div class="container">
+          
+          <div class="row align-items-center border p-3 rounded">
+
+              
+              <div class="col-3">
+              <img [src]="'https://localhost:7039/pictures/' + animal.name + '_1.jpg'" class="img-fluid rounded" alt="Animal">
+              </div>
+
+              <div class="col-5">
+              <ul class="list-group">
+                  <li class="list-group-item d-flex justify-content-between">
+                  <strong>Nom</strong> <span> {{ animal.name }} </span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                  <strong>Espèce</strong> <span>{{ animal.speciesName }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                  <strong>Sexe</strong> <span>{{ animal.sex }}</span>
+                  </li>
+              </ul>
+              </div>
+
+              <div class="col-4 text-end">
+              <button class="btn btn-primary mb-2" [routerLink] = "['/animals/details', animal.name]" >Détails</button><br>
+              <button class="btn btn-secondary mb-2">Modifier</button><br>
+              <button class="btn btn-danger">Supprimer</button>
+              </div>
+
+          </div>
+          </div>
+      }
+  </ul>
+
+<div class="d-flex justify-content-center align-items-center mt-3 w-100">
+
+  <!-- Pagination à gauche / centre -->
+  <nav aria-label="Pagination" class="me-3">
+    <ul class="pagination mb-0">
+
+      <!-- Précédent -->
+      <li class="page-item" [class.disabled]="page === 1">
+        <button class="page-link" (click)="goToPage(page - 1)">Précédent</button>
+      </li>
+
+      <!-- Page courante -->
+      <li class="page-item active">
+        <span class="page-link">
+          {{ page }}
+        </span>
+      </li>
+
+      <!-- Suivant (toujours actif pour l’instant, à affiner quand tu auras total) -->
+      <li class="page-item" [class.disabled]="wrongsizePage">
+        <button class="page-link" (click)="goToPage(page + 1)">Suivant</button>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Nb par page à droite -->
+  <div class="d-flex align-items-center">
+    <label class="me-2"># par page :</label>
+    <select
+      class="form-select form-select-sm w-auto"
+      [value]="pageSize"
+      (change)="changePageSize($event)">
+      @for (opt of pageSizeOptions; track opt) {
+        <option [value]="opt">{{ opt }}</option>
+      }
+    </select>
+  </div>
+
+</div>
+
+
+
+} @else if (animalsError) {
+  <p>{{ animalsError }}</p>
+} @else {
+  <p>Loading animals...</p>
+}
