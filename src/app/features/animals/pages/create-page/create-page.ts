@@ -2,10 +2,14 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AnimalsService } from '@core/services/animals.service';
+import { AnimalSex } from '@core/enums/animals-sex';
+import { owners } from '@core/enums/owners.enum';
+import { KeyValuePipe } from '@angular/common';
+import { AnimalSpecies } from '@core/models/animalspecies.model';
 
 @Component({
   selector: 'app-create-page',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, KeyValuePipe],
   templateUrl: './create-page.html',
   styleUrl: './create-page.scss',
 })
@@ -17,28 +21,29 @@ export class CreatePage {
 
   registerError :string = '';
 
-  name = new FormControl('', [
-    Validators.required,
-  ]);
-  sex = new FormControl('', [
-    Validators.required,
-  ]);
-  speciesName = new FormControl('', [
-    Validators.required,
-  ]);
-  ownerName = new FormControl('', [
-    Validators.required,
-  ]);
+  
+  protected AnimalSex = AnimalSex;
+  public speciesList: AnimalSpecies[] = [];
+  protected owners = owners;
+
+  constructor() {
+    this.loadSpecies();
+  }
+
+  name = new FormControl('', [Validators.required]);
+  sex = new FormControl<AnimalSex>(null!, [Validators.required]);
+  speciesName = new FormControl('', [Validators.required]);
+  ownerName = new FormControl<owners>(null!, [Validators.required]);
   isAvailable = new FormControl(false, {
     nonNullable: true,
-    validators: [Validators.required]
+    validators: [Validators.required],
   });
   birthDate = new FormControl<string>('', {
     nonNullable: true,
     validators: [Validators.required],
   });
   ripDate = new FormControl<string>('', {
-    nonNullable: true
+    nonNullable: true,
   });
 
   createForm = this._fb.group({
@@ -52,8 +57,8 @@ export class CreatePage {
   });
 
   createError = '';
-
-    onSubmit() {
+// créer le model animal form dto sans l'age et la description
+  onSubmit() {
     if (this.createForm.valid) {
       this._animalService
         .createAnimal({
@@ -64,12 +69,11 @@ export class CreatePage {
           isAvailable: this.createForm.value.isAvailable!,
           birthDate: this.createForm.value.birthDate!,
           ripDate: this.createForm.value.ripDate!,
-          age : null,
-          description : null,
+          age: null,
+          description: null,
         })
         .then(() => {
-          // redirigé
-          this._router.navigate(['/auth/login']);
+          this._router.navigate(['/animals']);
         })
         .catch((err) => {
           console.error(err);
@@ -78,7 +82,11 @@ export class CreatePage {
     }
   }
 
-
-
-
+  private async loadSpecies() {
+  try {
+    this.speciesList = await this._animalService.getAnimalSpecies();
+  } catch (err) {
+    console.error('Erreur chargement espèces', err);
+  }
+}
 }

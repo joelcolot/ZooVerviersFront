@@ -20,8 +20,8 @@ export class UserService
     
     async editOwnAccount(newAccount: editAccount): Promise<void>
     {
-        this.editUser={firstName: newAccount.firstName, lastName: newAccount.lastName, password: newAccount.password, email: this._auth.account!.email};
-        this.token = (await firstValueFrom(this._http.put<tokenString>(environment.apiUrl+"api/User/EditAccount", this.editUser)));
+        this.editUser={... newAccount, email: this._auth.account!.email};
+        this.token = await firstValueFrom(this._http.put<tokenString>(environment.apiUrl+"api/User/EditAccount", this.editUser));
         if (this.token)
         {
             this._auth.regenerateToken(this.token.token);

@@ -28,7 +28,7 @@ export class AnimalsListingPage implements OnInit {
 
   ngOnInit(): void {
 
-    const qp = this._route.snapshot.queryParams;
+    const qp = this._route.snapshot.queryParams; // modifier .subscribe sur queryparams this.route.queryParams.subscribe observable
     this.page = Number(qp['page']) || 1;
     this.pageSize = Number(qp['pageSize']) || 5;
 
@@ -41,7 +41,7 @@ export class AnimalsListingPage implements OnInit {
 
     try {
       
-      const response = await this._animalsService.getAnimals(this.page - 1, this.pageSize);
+      const response = await this._animalsService.getAnimals(this.page - 1, this.pageSize + 1);
       
  
       if (response.length !== this.pageSize) {
@@ -99,7 +99,4 @@ export class AnimalsListingPage implements OnInit {
     });
   }
 
-  async createAnimal() :Promise<void> {
-    
-  }
 }

@@ -12,26 +12,29 @@
     }
   </div>
   <div>
-    <label for="sex">Sexe: </label>
-    <input type="text" id="sex" formControlName="sex" />
-    @if (sex.touched && sex.invalid) {
-      @if (sex.getError('required')) {
-        <p>Le sexe est requis!</p>
-      }
-    }
+        <label for="sex">Sexe</label>
+
+        <select id="sex" formControlName="sex" size="AnimalSex.length">
+        @for (item of AnimalSex | keyvalue; track item.key) {
+            <option [value]="item.value">{{ item.value }}</option>
+        }
+        </select>
   </div>
   <div>
     <label for="speciesName">Espèce: </label>
-    <input type="text" id="speciesName" formControlName="speciesName" />
-    @if (speciesName.touched && speciesName.invalid) {
-      @if (speciesName.getError('required')) {
-        <p>L'espèce est requise!</p>
-      }
+    <select formControlName="speciesName">
+    @for (sp of speciesList; track $index) {
+        <option [value]="sp.name">{{ sp.name }}</option>
     }
+    </select>
   </div>
   <div>
     <label for="ownerName">Propriétaire: </label>
-    <input type="text" id="ownerName" formControlName="ownerName" />
+        <select id="ownerName" formControlName="ownerName" size="ownerName.length">
+        @for (item of owners | keyvalue; track item.key) {
+            <option [value]="item.value">{{ item.value }}</option>
+        }
+        </select>
     @if (ownerName.touched && ownerName.invalid) {
       @if (ownerName.getError('required')) {
         <p>Le propriétaire est requis!</p>
@@ -57,11 +60,10 @@
     }
   </div>
   <div>
-    <label for="ripDate">Date de déces :</label>
+    <label for="ripDate">Date de décès :</label>
     <input type="date" id="ripDate" formControlName="ripDate" />
   </div>
 
-  <!-- Confirm password? -->
 
   <button type="submit" [disabled]="createForm.invalid">S'enregistrer</button>
   @if (registerError) {
