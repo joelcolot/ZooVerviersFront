@@ -101,9 +101,5 @@ export class AnimalsListingPage implements OnInit {
 
   async createAnimal() :Promise<void> {
     
-
-
-
-    
   }
 }

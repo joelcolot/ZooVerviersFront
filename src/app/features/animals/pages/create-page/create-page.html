@@ -1,0 +1,70 @@
+
+
+<form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+  <h1>Créer un animal</h1>
+  <div>
+    <label for="name">Nom: </label>
+    <input type="text" id="name" formControlName="name" />
+    @if (name.touched && name.invalid) {
+      @if (name.getError('required')) {
+        <p>Le nom est requis!</p>
+      }
+    }
+  </div>
+  <div>
+    <label for="sex">Sexe: </label>
+    <input type="text" id="sex" formControlName="sex" />
+    @if (sex.touched && sex.invalid) {
+      @if (sex.getError('required')) {
+        <p>Le sexe est requis!</p>
+      }
+    }
+  </div>
+  <div>
+    <label for="speciesName">Espèce: </label>
+    <input type="text" id="speciesName" formControlName="speciesName" />
+    @if (speciesName.touched && speciesName.invalid) {
+      @if (speciesName.getError('required')) {
+        <p>L'espèce est requise!</p>
+      }
+    }
+  </div>
+  <div>
+    <label for="ownerName">Propriétaire: </label>
+    <input type="text" id="ownerName" formControlName="ownerName" />
+    @if (ownerName.touched && ownerName.invalid) {
+      @if (ownerName.getError('required')) {
+        <p>Le propriétaire est requis!</p>
+      }
+    }
+  </div>
+  <div>
+    <label for="isAvailable">isAvailable :</label>
+    <input type="checkbox" id="isAvailable" formControlName="isAvailable" />
+    @if (isAvailable.touched && isAvailable.invalid) {
+      @if (isAvailable.getError('required')) {
+        <p>isAvailable est requis !</p>
+      }
+    }
+  </div>
+  <div>
+    <label for="birthDate">Date de naissance :</label>
+    <input type="date" id="birthDate" formControlName="birthDate" />
+    @if (birthDate.touched && birthDate.invalid) {
+      @if (birthDate.getError('required')) {
+        <p>La date de naissance est requise !</p>
+      }
+    }
+  </div>
+  <div>
+    <label for="ripDate">Date de déces :</label>
+    <input type="date" id="ripDate" formControlName="ripDate" />
+  </div>
+
+  <!-- Confirm password? -->
+
+  <button type="submit" [disabled]="createForm.invalid">S'enregistrer</button>
+  @if (registerError) {
+    <p>{{ registerError }}</p>
+  }
+</form>
