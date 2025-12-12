@@ -41,6 +41,13 @@
       <p class="error">{{"features.auth.pages.login.password-error-password"|translate}}</p>
     }
   </div>
+    <div>
+    <label for="confirmPassword">{{"features.labels.password-label"|translate}}: </label>
+    <input type="password" id="confirmPassword" formControlName="confirmPassword" />
+    <!-- @if (password.touched && password.invalid) {
+      <p class="error">{{"features.auth.pages.login.password-error-password"|translate}}</p>
+    } -->
+  </div>
 </div>
   <button type="submit" [disabled]="registerForm.invalid">{{"components.button.validate"|translate}}</button>
   @if (registerError) {

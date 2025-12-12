@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { computed, effect, inject, Injectable, Signal, signal } from '@angular/core';
 import { UserRole } from '@core/enums';
-import { LoginResponse, Token, userAccount, UserRegisterForm } from '@core/models';
+import { LoginResponse, Token, userAccount, userAccountApi, UserRegisterForm } from '@core/models';
 import { environment } from '@env';
 import { jwtDecode } from 'jwt-decode';
 import { firstValueFrom } from 'rxjs';
@@ -12,7 +12,8 @@ import { firstValueFrom } from 'rxjs';
 export class AuthService {
   // Injection du HttpClient
   private readonly _httpClient = inject(HttpClient);
-  account: userAccount | null=null;;
+  account: userAccount | null=null;
+  accountApi: userAccountApi|null=null;
 
   // signal pour savoir si l'utilisateur est connecté (calculé à partir du token)
   isConnected: Signal<boolean> = computed(() => !!this.token()); // !! convertit en booléen
@@ -77,21 +78,28 @@ export class AuthService {
   }
 
 
-  getAccount(): userAccount | null
+  async getAccount(): Promise<userAccount | null>
   {
+    
     if (this._token!==null && localStorage.getItem('token')!==null)
     {
-      
+      //await fir
       const decodedJWT = jwtDecode<Token>(localStorage.getItem('token')!);
-      //console.log(decodedJWT);
+      console.log(decodedJWT);
       this.account=
       {
-        firstName: decodedJWT["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"],
-        lastName: decodedJWT["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"],
-        email: decodedJWT['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'],
+        //firstName: decodedJWT["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"],
+        //lastName: decodedJWT["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"],
+        //email: decodedJWT['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'],
+        firstName: "",
+        lastName: "",
+        email: "",
+        subscribed: false,
         role: decodedJWT['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'],
         userId: decodedJWT['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid'],
       };
+      this.accountApi = await firstValueFrom(this._httpClient.get<userAccountApi>(environment.apiUrl + "api/User/MyAccount"));
+      this.account = {...this.accountApi, role: this.account.role, userId: this.account.userId};
       return this.account;
     }
     return null;

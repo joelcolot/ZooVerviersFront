@@ -1,13 +1,14 @@
-import { JsonPipe } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { AnimalsListing } from '@core/models/animals-listing.model';
+import { AnimalsListing } from '@core/models/animals/animals-listing.model';
 import { ApiError } from '@core/models/api-error.model';
 import { AnimalsService } from '@core/services/animals.service';
+import { TranslatePipe } from '@ngx-translate/core';
+import { Spinner } from "@components/animation/spinner/spinner";
 
 @Component({
   selector: 'app-animals-listing-page',
-  imports: [JsonPipe, RouterModule],
+  imports: [RouterModule, TranslatePipe, Spinner],
   templateUrl: './animals-listing-page.html',
   styleUrl: './animals-listing-page.scss',
 })

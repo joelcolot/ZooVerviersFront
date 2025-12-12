@@ -20,11 +20,11 @@ export const routes: Routes = [
         loadChildren: () => import('./features/errors/error.routes').then(z => z.routes),
     },
     {
+        path: "animals",
+        loadChildren: () => import('./features/animals/animals.routes').then(z => z.routes)
+    },
+    {
         path: "**",
         redirectTo: "error/404",
     },
-    {
-        path: "animals",
-        loadChildren: () => import('./features/animals/animals.routes').then(z => z.routes)
-    }
 ];

@@ -1,14 +1,14 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormControl, FormControlName, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ApiError } from '@core/models/api-error.model';
-import { AuthService } from '@core/services/auth.service';
-import { strongPasswordValidator } from '@core/validators/strong-password.validator';
 import { TranslatePipe } from '@ngx-translate/core';
+import { Spinner } from "@components/animation/spinner/spinner";
+import { ApiError } from '@core/models';
+import { AuthService } from '@core/services';
 
 @Component({
   selector: 'app-login-page',
-  imports: [ReactiveFormsModule, TranslatePipe],
+  imports: [ReactiveFormsModule, TranslatePipe, Spinner],
   templateUrl: './login-page.html',
   styleUrl: './login-page.scss',
 })

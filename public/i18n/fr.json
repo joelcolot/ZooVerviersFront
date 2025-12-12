@@ -46,7 +46,11 @@
             "role-label": "Rôle",
             "name-label": "Nom",
             "species-label": "Espèce",
-            "sex-label": "Sexe"
+            "sex-label": "Sexe",
+            "owner-label": "Propriétaire",
+            "is-present-label": "Actuellement présent",
+            "birth-label": "Date de naissance",
+            "age-label": "Âge"
         },
         "error":
         {
@@ -65,8 +69,12 @@
             "details": "Détails",
             "modify": "Modifier",
             "delete": "Supprimer",
+            "previous": "Précédent",
+            "next": "Suivant",
+            "page-size": "Nombre par page",
             "back-to-list":"Retour à la liste",
-            "change-password": "Changer mdp"
+            "change-password": "Changer mdp",
+            "new-animal": "Créer un nouvel animal"
         },
         "nav-bar":
         {

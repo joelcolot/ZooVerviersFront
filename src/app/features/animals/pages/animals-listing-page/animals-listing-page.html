@@ -1,11 +1,11 @@
-
+<loading-spinner></loading-spinner>
 
 @if (animals != null) {
   <ul>
           <div class="container">
             
           <div class="row align-items-center border p-3 rounded">
-            <button class="btn btn-success" (click)="createAnimal()">Créer un nouvel animal</button>
+            <button class="btn btn-success" (click)="createAnimal()">{{"components.button.new-animal"|translate}}</button>
           </div>
           </div>
 
@@ -23,21 +23,21 @@
               <div class="col-5">
               <ul class="list-group">
                   <li class="list-group-item d-flex justify-content-between">
-                  <strong>Nom</strong> <span> {{ animal.name }} </span>
+                  <strong>{{"features.labels.name-label"|translate}}</strong> <span> {{ animal.name }} </span>
                   </li>
                   <li class="list-group-item d-flex justify-content-between">
-                  <strong>Espèce</strong> <span>{{ animal.speciesName }}</span>
+                  <strong>{{"features.labels.species-label"|translate}}</strong> <span>{{ animal.speciesName }}</span>
                   </li>
                   <li class="list-group-item d-flex justify-content-between">
-                  <strong>Sexe</strong> <span>{{ animal.sex }}</span>
+                  <strong>{{"features.labels.sex-label"|translate}}</strong> <span>{{ animal.sex }}</span>
                   </li>
               </ul>
               </div>
 
               <div class="col-4 text-end">
-              <button class="btn btn-primary mb-2" [routerLink] = "['/animals/details', animal.name]" >Détails</button><br>
-              <button class="btn btn-secondary mb-2">Modifier</button><br>
-              <button class="btn btn-danger">Supprimer</button>
+              <button class="btn btn-primary mb-2" [routerLink] = "['/animals/details', animal.name]" >{{"components.button.details"|translate}}</button><br>
+              <button class="btn btn-secondary mb-2">{{"components.button.modify"|translate}}</button><br>
+              <button class="btn btn-danger">{{"components.button.delete"|translate}}</button>
               </div>
 
           </div>
@@ -53,7 +53,7 @@
 
       <!-- Précédent -->
       <li class="page-item" [class.disabled]="page === 1">
-        <button class="page-link" (click)="goToPage(page - 1)">Précédent</button>
+        <button class="page-link" (click)="goToPage(page - 1)">{{"components.button.previous"|translate}}</button>
       </li>
 
       <!-- Page courante -->
@@ -65,14 +65,14 @@
 
       <!-- Suivant (toujours actif pour l’instant, à affiner quand tu auras total) -->
       <li class="page-item" [class.disabled]="wrongsizePage">
-        <button class="page-link" (click)="goToPage(page + 1)">Suivant</button>
+        <button class="page-link" (click)="goToPage(page + 1)">{{"components.button.next"|translate}}</button>
       </li>
     </ul>
   </nav>
 
   <!-- Nb par page à droite -->
   <div class="d-flex align-items-center">
-    <label class="me-2"># par page :</label>
+    <label class="me-2">{{"components.button.page-size"|translate}}:</label>
     <select
       class="form-select form-select-sm w-auto"
       [value]="pageSize"

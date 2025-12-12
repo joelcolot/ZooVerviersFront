@@ -1,8 +1,9 @@
+<loading-spinner></loading-spinner>
+
 <div class="in-line">
     <img [src]="vvsLogoUrl" alt="Logo officiel de la ville de Verviers" class="main-logo">
     <p>L'avenir se tisse à Verviers.</p>
 </div>
-
 <div class="chapter chapter1">
     <!-- <img [src]="zooPicture1Url" alt="Image de la migration des antilopes" class="background-picture"> -->
     <h2>Bienvenue !</h2>
@@ -10,6 +11,7 @@
         <p>Vous vous trouvez actuellement sur le site du zoo de Verviers. Vous pouvez y trouver divers animaux reconnus tels que...</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, molestiae! Autem inventore, nostrum nam, quis placeat nisi at omnis temporibus consequatur architecto reiciendis fuga veritatis. Amet cumque nulla eveniet veniam.</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis saepe totam blanditiis accusamus rem omnis vitae, molestias consectetur expedita consequuntur fugit velit. Sequi excepturi veritatis cum libero numquam maiores error corporis, facere beatae a deleniti modi temporibus, vel impedit corrupti sit at rerum! Repellendus quae, possimus qui quo obcaecati quidem, aliquid voluptatem sit illum voluptatum officiis illo explicabo earum similique, quasi dolore enim nihil. Maiores labore quos ducimus optio laborum eos laboriosam dicta veritatis sit. Eligendi incidunt qui fugiat excepturi delectus sequi ipsum expedita repudiandae ab natus, officiis facere voluptate error accusamus impedit! Quaerat labore deserunt provident iure nisi harum, soluta corporis blanditiis hic laboriosam, reprehenderit debitis laborum suscipit illo, vero voluptatem tempora magnam quam. Eveniet nihil consequuntur enim et.</p>
+        <p><a routerLink="/animals/">Vous pouvez regarder la liste de nos animaux ici.</a></p>
     </div>
 </div>
 <div class="chapter chapter2">
@@ -22,4 +24,9 @@
 </div>
 <div class="gallery">
     <img [src]="zooPicture1Url" alt="Image" class="picture">
+    <div class="buttons">
+        <button (click)="previousPicture()">{{"components.button.previous"|translate}}</button>
+        <span>  {{ 1+i%pictures.length }}/{{ pictures.length }}  </span>
+        <button (click)="nextPicture()">{{"components.button.next"|translate}}</button>
+    </div>
 </div>

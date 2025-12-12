@@ -1,5 +1,5 @@
-import { Component, inject, model, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators, ɵInternalFormsSharedModule, ReactiveFormsModule, NgModel } from '@angular/forms';
+import { Component, inject, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, Validators, ɵInternalFormsSharedModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiError, editAccount, userAccount } from '@core/models';
 import { AuthService, UserService } from '@core/services';
@@ -20,9 +20,9 @@ export class EditAccount implements OnInit
     myAccount: userAccount | null = null;
     newAccount: editAccount | null = null;
     temp: string = "";
-    ngOnInit(): void 
+    async ngOnInit(): Promise<void> 
     {
-        this.myAccount = this._auth.getAccount();
+        this.myAccount = await this._auth.getAccount();
     }
 
     firstName = new FormControl('', [Validators.required, Validators.maxLength(50), Validators.minLength(2)]);

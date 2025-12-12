@@ -5,6 +5,7 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideTranslateService } from '@ngx-translate/core';
 import {provideTranslateHttpLoader} from '@ngx-translate/http-loader';
 import { authInterceptor } from '@core/interceptors/auth-interceptor';
+import { spinnerInterceptor } from '@core/interceptors/spinner-interceptor';
 
 
 export const appConfig: ApplicationConfig = {
@@ -12,7 +13,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(withInterceptors([authInterceptor])),
+    provideHttpClient(withInterceptors([authInterceptor, spinnerInterceptor])),
     provideTranslateService({
       loader: provideTranslateHttpLoader({
         prefix: '/i18n/',

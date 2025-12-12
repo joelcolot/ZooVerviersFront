@@ -1,13 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { userAccount } from '@core/models/user-account.model';
-import { UserService } from '@core/services';
-import { AuthService } from '@core/services/auth.service';
 import { TranslatePipe } from '@ngx-translate/core';
+import { Spinner } from "@components/animation/spinner/spinner";
+import { userAccount } from '@core/models';
+import { AuthService, UserService } from '@core/services';
 
 @Component({
   selector: 'app-my-account-view',
-  imports: [TranslatePipe],
+  imports: [TranslatePipe, Spinner],
   templateUrl: './my-account-view.html',
   styleUrl: './my-account-view.scss',
 })
@@ -22,11 +22,11 @@ export class MyAccountView implements OnInit
   
   
   
-    ngOnInit(): void 
+    async ngOnInit(): Promise<void> 
     {
         if (this._auth.isConnected())
         {
-            this.myAccount = this._auth.getAccount();
+            this.myAccount = await this._auth.getAccount();
         }
         else
         {

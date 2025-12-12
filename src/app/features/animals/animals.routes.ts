@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { isAdminGuard } from '@core/guards/is-admin-guard';
 
 
 
@@ -9,6 +10,7 @@ export const routes: Routes = [
     },
     {
         path: 'details/:name',
+        //canActivate: [isAdminGuard],
         loadComponent: () => import('./pages/animals-details-page/animals-details-page').then(c => c.AnimalsDetailsPage)
     },
 ]

@@ -1,11 +1,9 @@
 import { UserRole } from "@core/enums";
 
-export interface userAccount 
+export interface userAccountApi
 {
     firstName: string;
     lastName: string;
     email: string;
-    role: UserRole;
-    userId: number;
-    //subscribed: boolean;
+    subscribed: boolean;
 }

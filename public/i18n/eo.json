@@ -46,7 +46,11 @@
             "role-label": "Rolo",
             "name-label": "Nomo",
             "species-label": "Specioj",
-            "sex-label": "Sekso"
+            "sex-label": "Sekso",
+            "owner-label": "Posedanto",
+            "is-present-label": "Nuntempe ĉeestanta",
+            "birth-label": "Naskiĝdato",
+            "age-label": "Aĝo"
         },
         "error":
         {
@@ -65,8 +69,12 @@
             "details": "Detaloj",
             "modify": "Modifi",
             "delete": "Forigi",
+            "previous": "Antaŭa",
+            "next": "Sekvante",
+            "page-size": "Nombro po paĝo",
             "back-to-list":"Reen al la listo",
-            "change-password": "Ŝanĝi pasvorton"
+            "change-password": "Ŝanĝi pasvorton",
+            "new-animal": "Krei novan beston"
         },
         "nav-bar":
         {

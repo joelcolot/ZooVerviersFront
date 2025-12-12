@@ -54,6 +54,7 @@
       }
       @else
       {
+        <p class="name"> {{ firstName }} {{ lastName }} </p>
         <button class="btn btn-outline-secondary" routerLink="/" (click)="logout()">{{ "components.button.logout" | translate}}</button>
       }
 

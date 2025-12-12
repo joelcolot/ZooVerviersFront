@@ -1,9 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { AnimalsDetails } from '@core/models/animals-details.model';
-import { AnimalsListing } from '@core/models/animals-listing.model';
-import { AnimalSpecies } from '@core/models/animalspecies.model';
-import { ApiResponseList } from '@core/models/api-response.model';
+import { AnimalSpecies, AnimalsListing, AnimalsDetails } from '@core/models';
 import { environment } from '@env';
 import { firstValueFrom } from 'rxjs';
 

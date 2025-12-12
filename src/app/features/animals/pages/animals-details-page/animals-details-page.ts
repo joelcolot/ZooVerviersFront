@@ -1,14 +1,14 @@
 import { DatePipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { AnimalsDetails } from '@core/models/animals-details.model';
-import { ApiError } from '@core/models/api-error.model';
-import { AnimalsService } from '@core/services/animals.service';
-declare var bootstrap: any;
+import { TranslatePipe } from '@ngx-translate/core';
+import { Spinner } from "@components/animation/spinner/spinner";
+import { AnimalsDetails, ApiError } from '@core/models';
+import { AnimalsService } from '@core/services';
 
 @Component({
   selector: 'app-animals-details-page',
-  imports: [AnimalsDetailsPage, RouterModule, DatePipe],
+  imports: [RouterModule, DatePipe, TranslatePipe, Spinner],
   templateUrl: './animals-details-page.html',
   styleUrl: './animals-details-page.scss',
 })

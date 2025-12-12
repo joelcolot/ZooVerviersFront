@@ -46,7 +46,11 @@
             "role-label": "Peran",
             "name-label": "Jeneng",
             "species-label": "Spesies",
-            "sex-label": "Seks"
+            "sex-label": "Seks",
+            "owner-label": "Sing nduwèni",
+            "is-present-label": "Saiki ana",
+            "birth-label": "Tanggal lair",
+            "age-label": "Umur"
         },
         "error":
         {
@@ -65,8 +69,12 @@
             "details": "Rincian",
             "modify": "Kanggo ngowahi",
             "delete": "Mbusak",
+            "previous": "Sadurunge",
+            "next": "Ngikuti",
+            "page-size": "Cacah saben kaca",
             "back-to-list":"Bali menyang dhaptar",
-            "change-password": "Ganti sandhi"
+            "change-password": "Ganti sandhi",
+            "new-animal": "Nggawe kewan anyar"
         },
         "nav-bar":
         {

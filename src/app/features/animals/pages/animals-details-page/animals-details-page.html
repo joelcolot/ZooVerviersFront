@@ -1,3 +1,5 @@
+<loading-spinner></loading-spinner>
+
 <div class="container my-4">
   @if (animal) {
     <div class="card shadow-sm">
@@ -24,12 +26,12 @@
             </div>
 
             <p class="text-muted mb-10">
-              Espèce : {{ animal.speciesName }} <br />
-              Sexe : {{ animal.sex }}<br />
-              Propriétaire : {{ animal.ownerName}} <br />
-              Actuellement présent : {{animal.isAvailable}} <br />
-              Date de naissance : {{animal.birthDate | date:'dd/MM/yyyy' }} <br />
-              Age : {{age}} <br /><br />
+              {{"features.labels.species-label"|translate}}: {{ animal.speciesName }} <br />
+              {{"features.labels.sex-label"|translate}}: {{ animal.sex }}<br />
+              {{"features.labels.owner-label"|translate}}: {{ animal.ownerName}} <br />
+              {{"features.labels.is-present-label"|translate}}: {{animal.isAvailable}} <br />
+              {{"features.labels.birth-label"|translate}}: {{animal.birthDate | date:'dd/MM/yyyy' }} <br />
+              {{"features.labels.age-label"|translate}}: {{age}} <br /><br />
 
             @if (description) {
               <p class="card-text mb-3">

@@ -46,7 +46,11 @@
             "role-label": "Role",
             "name-label": "Name",
             "species-label": "Species",
-            "sex-label": "Sex"
+            "sex-label": "Sex",
+            "owner-label": "Owner",
+            "is-present-label": "Currently present",
+            "birth-label": "Birth date",
+            "age-label": "Age"
         }
     },
     "components":
@@ -61,8 +65,12 @@
             "details": "Details",
             "modify": "Modify",
             "delete": "Delete",
+            "previous": "Previous",
+            "next": "Next",
+            "page-size": "Number each page",
             "back-to-list":"Back to the list",
-            "change-password": "Change password"
+            "change-password": "Change password",
+            "new-animal": "Create new animal"
         },
         "nav-bar":
         {

@@ -7,19 +7,15 @@
             {
                 "login":
                 {
-                    "firstname-label": "Prénom"  =>  {{"features.labels.firstname-label"|translate}}
                     "firstname-error-required": "Le prénom est requis."  => {{"features.labels.firstname-error-required"|translate}}
                     "firstname-error-length": "Le prénom doit contenir de 2 à 50 caractères." => {{"features.labels.firstname-error-length"|translate}}
 
-                    "lastname-label": "Nom de famille" => {{"features.labels.lastname-label"|translate}}
                     "lastname-error-required": "Le nom de famille est requis." => {{"features.labels.lastname-error-required"|translate}}
                     "lastname-error-length": "Le nom doit contenir de 2 à 50 caractères." => {{"features.labels.lastname-error-length"|translate}}
 
-                    "email-label": "Courriel" => {{"features.labels.email-label"|translate}}
                     "email-error-required":"Une adresse électronique est requise." => {{"features.labels.email-error-required"|translate}}
                     "email-error-email":"Ceci n'est pas une adresse valide." => {{"features.labels.email-error-email"|translate}}
 
-                    "password-label": "Mot de passe" => {{"features.labels.password-label"|translate}}
                     "password-error-required": "Le mot de passe est requis." => {{"features.labels.password-error-required"|translate}}
                     "password-error-password":"Le mot de passe doit au moins contenir huit caractères, une majuscule, une majuscule et un chiffre." => {{"features.labels.password-error-password"|translate}}
                 }
@@ -51,6 +47,10 @@
             "name-label": "Nom" => {{"features.labels.name-label"|translate}}
             "species-label": "Espèce" => {{"features.labels.species-label"|translate}}
             "sex-label": "Sexe" => {{"features.labels.sex-label"|translate}}
+            "owner-label": "Propriétaire" => {{"features.labels.owner-label"|translate}}
+            "is-present-label": "Actuellement présent" => {{"features.labels.is-present-label"|translate}}
+            "birth-label": "Date de naissance" => {{"features.labels.birth-label"|translate}}
+            "age-label": "Âge" => {{"features.labels.age-label"|translate}}
         },
         "error":
         {
@@ -69,8 +69,12 @@
             "details": "Détails" => {{"components.button.details"|translate}}
             "modify": "Modifier" => {{"components.button.modify"|translate}}
             "delete": "Supprimer" => {{"components.button.delete"|translate}}
+            "previous": "Précédent" => {{"components.button.previous"|translate}}
+            "next": "Suivant" => {{"components.button.next"|translate}}
+            "page-size": "Nombre par page" => {{"components.button.page-size"|translate}}
             "back-to-list":"Retour à la liste" => {{"components.button.back-to-list"|translate}}
             "change-password": "Changer mdp" => {{"components.button.change-password"|translate}}
+            "new-animal": "Créer un nouvel animal" => {{"components.button.new-animal"|translate}}
         },
         "nav-bar":
         {

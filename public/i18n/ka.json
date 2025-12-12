@@ -46,7 +46,11 @@
             "role-label": "როლი",
             "name-label": "სახელი",
             "species-label": "სახეობები",
-            "sex-label": "სექსი"
+            "sex-label": "სექსი",
+            "owner-label": "მფლობელი",
+            "is-present-label": "ამჟამად იმყოფება",
+            "birth-label": "დაბადების თარიღი",
+            "age-label": "ასაკი"
         },
         "error":
         {
@@ -65,8 +69,12 @@
             "details": "დეტალები",
             "modify": "შესაცვლელად",
             "delete": "წაშლა",
+            "previous": "წინა",
+            "next": "მიმდევარი",
+            "page-size": "რაოდენობა გვერდზე",
             "back-to-list":"დაბრუნება სიაში",
-            "change-password": "პაროლის შეცვლა"
+            "change-password": "პაროლის შეცვლა",
+            "new-animal": "შექმენით ახალი ცხოველი"
         },
         "nav-bar":
         {
