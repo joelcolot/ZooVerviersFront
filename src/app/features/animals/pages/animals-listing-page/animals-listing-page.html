@@ -36,7 +36,7 @@
 
               <div class="col-4 text-end">
               <button class="btn btn-primary mb-2" [routerLink] = "['/animals/details', animal.name]" >Détails</button><br>
-              <button class="btn btn-secondary mb-2">Modifier</button><br>
+              <button class="btn btn-secondary mb-2" [routerLink] = "['/animals/modify', id]">Modifier</button><br>
               <button class="btn btn-danger">Supprimer</button>
               </div>
 
@@ -64,7 +64,7 @@
       </li>
 
       <!-- Suivant (toujours actif pour l’instant, à affiner quand tu auras total) -->
-      <li class="page-item" [class.disabled]="wrongsizePage">
+      <li class="page-item" [class.disabled]="!hasNextPage">
         <button class="page-link" (click)="goToPage(page + 1)">Suivant</button>
       </li>
     </ul>

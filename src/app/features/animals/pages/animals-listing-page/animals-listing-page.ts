@@ -24,7 +24,8 @@ export class AnimalsListingPage implements OnInit {
   page :number = 1;
   pageSize :number = 5;
   pageSizeOptions :number[] = [5,10,25,50];
-  wrongsizePage :boolean = false;
+  hasNextPage :boolean = false;
+
 
   ngOnInit(): void {
 
@@ -41,21 +42,14 @@ export class AnimalsListingPage implements OnInit {
 
     try {
       
-      const response = await this._animalsService.getAnimals(this.page - 1, this.pageSize + 1);
+
+      const current = await this._animalsService.getAnimals(this.page - 1, this.pageSize);
+      this.animals = current;
+
+      const next = await this._animalsService.getAnimals(this.page, this.pageSize);
+      this.hasNextPage = next.length > 0;
       
- 
-      if (response.length !== this.pageSize) {
-        console.warn("Le backend ne renvoie pas le bon nombre !");
-        this.wrongsizePage = true;
-      } 
-      else 
-      {
-        this.wrongsizePage = false;
-      }
 
-
-
-      this.animals = response;
       this.animalsError = null;
     } catch (err) {
       console.error(err);

@@ -1,11 +1,11 @@
 <div class="page">
-  <form class="card" [formGroup]="createForm" (ngSubmit)="onSubmit()">
+  <form class="card" [formGroup]="modifyForm" (ngSubmit)="onSubmit()">
 
-    <h1>Créer un animal</h1>
+    <h1>Modifier un animal</h1>
 
     <div class="form-group">
       <label for="name">Nom</label>
-      <input id="name" type="text" formControlName="name" />
+      <input id="name" type="text" formControlName="name"/>
       @if (name.touched && name.invalid) {
         <span class="error">Le nom est requis</span>
       }
@@ -13,7 +13,7 @@
 
     <div class="form-group">
       <label for="sex">Sexe</label>
-        <select id="sex" formControlName="sex">
+        <select id="sex" formControlName="sexId">
           @for (s of sexOptions; track s.value) {
             <option [ngValue]="s.value">{{ s.label }}</option>
           }
@@ -43,7 +43,7 @@
 
     <div class="form-group checkbox">
       <label>
-        <input type="checkbox" formControlName="isAvailable" />
+        <input type="checkbox" formControlName="isAvailable"/>
         Disponible
       </label>
     </div>
@@ -58,11 +58,11 @@
 
     <div class="form-group">
       <label for="ripDate">Date de décès</label>
-      <input id="ripDate" type="date" formControlName="ripDate" />
+      <input id="ripDate" type="date" formControlName="ripDate"/>
     </div>
 
-    <button type="submit" [disabled]="createForm.invalid">
-      Enregistrer
+    <button type="submit" [disabled]="modifyForm.invalid">
+      Modifier
     </button>
 
     @if (registerError) {

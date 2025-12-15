@@ -15,4 +15,9 @@ export const routes: Routes = [
         path: 'create',
         loadComponent: () => import('./pages/create-page/create-page').then(c => c.CreatePage)
     },
+    {
+        path: 'modify/:id',
+        loadComponent: () => import('./pages/modify-page/modify-page').then(c => c.ModifyPage)
+    },
+
 ]

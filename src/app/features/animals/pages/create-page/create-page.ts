@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angu
 import { Router } from '@angular/router';
 import { AnimalsService } from '@core/services/animals.service';
 import { AnimalSex } from '@core/enums/animals-sex';
-import { owners } from '@core/enums/owners.enum';
+import { OwnerLabels, owners } from '@core/enums/owners.enum';
 import { KeyValuePipe } from '@angular/common';
 import { AnimalSpecies } from '@core/models/animalspecies.model';
 
@@ -25,15 +25,24 @@ export class CreatePage {
   protected AnimalSex = AnimalSex;
   public speciesList: AnimalSpecies[] = [];
   protected owners = owners;
+  protected OwnerLabels = OwnerLabels;
+
+  sexOptions = Object.values(AnimalSex)
+  .filter((v): v is number => typeof v === 'number')
+  .map(v => ({ value: v, label: AnimalSex[v] as string }));
+
+  ownerOptions = Object.values(owners)
+  .filter((v): v is number => typeof v === 'number')
+  .map(v => ({ value: v, label: owners[v] as string }));
 
   constructor() {
     this.loadSpecies();
   }
 
   name = new FormControl('', [Validators.required]);
-  sex = new FormControl<AnimalSex>(null!, [Validators.required]);
+  sex = new FormControl(0, [Validators.required]);
   speciesName = new FormControl('', [Validators.required]);
-  ownerName = new FormControl<owners>(null!, [Validators.required]);
+  ownerId = new FormControl<owners>(null!, [Validators.required]);
   isAvailable = new FormControl(false, {
     nonNullable: true,
     validators: [Validators.required],
@@ -50,35 +59,30 @@ export class CreatePage {
     name: this.name,
     sex: this.sex,
     speciesName: this.speciesName,
-    ownerName: this.ownerName,
+    ownerId: this.ownerId,
     isAvailable: this.isAvailable,
     birthDate: this.birthDate,
     ripDate: this.ripDate,
   });
 
   createError = '';
-// créer le model animal form dto sans l'age et la description
+
   onSubmit() {
+
     if (this.createForm.valid) {
-      this._animalService
-        .createAnimal({
-          name: this.createForm.value.name!,
-          sex: this.createForm.value.sex!,
-          speciesName: this.createForm.value.speciesName!,
-          ownerName: this.createForm.value.ownerName!,
-          isAvailable: this.createForm.value.isAvailable!,
-          birthDate: this.createForm.value.birthDate!,
-          ripDate: this.createForm.value.ripDate!,
-          age: null,
-          description: null,
-        })
-        .then(() => {
-          this._router.navigate(['/animals']);
-        })
-        .catch((err) => {
-          console.error(err);
-          this.registerError = err.message;
-        });
+      const v = this.createForm.value;
+
+      const payload = {
+        Name: v.name!,
+        Sex: Number(v.sex),                // <-- blindage
+        SpeciesName: v.speciesName!,
+        OwnerId: Number(v.ownerId),        // <-- IMPORTANT: OwnerId (pas ownerId)
+        BirthDate: new Date(v.birthDate!).toISOString(),
+        RIPDate: v.ripDate ? new Date(v.ripDate).toISOString() : null,
+        IsAvailable: v.isAvailable!,       // seulement si l’API l’attend
+      };
+
+      this._animalService.createAnimal(payload as any);
     }
   }
 

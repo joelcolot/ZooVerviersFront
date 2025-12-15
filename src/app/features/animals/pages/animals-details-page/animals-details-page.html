@@ -27,6 +27,7 @@
               Propriétaire : {{ animal.ownerName}} <br />
               Actuellement présent : {{animal.isAvailable}} <br />
               Date de naissance : {{animal.birthDate | date:'dd/MM/yyyy' }} <br />
+              @if(animal.ripDate) {Date de décès : {{animal.ripDate | date:'dd/MM/yyyy'}} <br />}
               Age : {{age}} <br /><br />
 
             @if (description) {

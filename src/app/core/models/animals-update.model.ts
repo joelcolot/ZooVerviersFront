@@ -1,4 +1,4 @@
-export interface animalsCreate {
+export interface animalsUpdate {
   Name :string,
   Sex :number,
   SpeciesName :string,

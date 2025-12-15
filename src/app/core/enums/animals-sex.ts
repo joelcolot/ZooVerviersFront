@@ -1,5 +1,5 @@
 export enum AnimalSex {
-    Femelle = 'Femelle',
-    Hermaphrodite = 'Hermaphrodite',
-    Male = 'Mâle',
+    Femelle = 0,
+    Hermaphrodite = 1,
+    Mâle = 2,
 }

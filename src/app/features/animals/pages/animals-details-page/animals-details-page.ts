@@ -47,7 +47,7 @@ export class AnimalsDetailsPage {
 
       this.description = species?.description;
 
-      
+      console.log(this.animal);
       
       this.animalError = null;
 
