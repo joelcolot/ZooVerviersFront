@@ -85,7 +85,7 @@ export class AuthService {
     {
       //await fir
       const decodedJWT = jwtDecode<Token>(localStorage.getItem('token')!);
-      console.log(decodedJWT);
+      //console.log(decodedJWT);
       this.account=
       {
         //firstName: decodedJWT["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"],

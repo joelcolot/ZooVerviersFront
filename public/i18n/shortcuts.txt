@@ -51,10 +51,14 @@
             "is-present-label": "Actuellement présent" => {{"features.labels.is-present-label"|translate}}
             "birth-label": "Date de naissance" => {{"features.labels.birth-label"|translate}}
             "age-label": "Âge" => {{"features.labels.age-label"|translate}}
+            "street-label": "Rue, numéro" => {{"features.labels.street-label"|translate}}
+            "city-label": "Ville - code postal" => {{"features.labels.city-label"|translate}}
+            "country-label": "Pays" => {{"features.labels.country-label"|translate}}
         },
         "error":
         {
             "not-found-page": "Soit cette page n'existe pas, soit vous n'avez pas le droit d'être ici !" => {{"features.error.not-found-page"|translate}}
+            "forbidden-page": "Tu n'es pas autorisé à aller plus loin !" => {{"features.error.forbidden-page"|translate}}
         }
     },
     "components":

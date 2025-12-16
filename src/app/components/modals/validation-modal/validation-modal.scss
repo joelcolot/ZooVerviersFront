@@ -1,0 +1,16 @@
+.modale
+{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-content: center;
+    text-align: center;
+    z-index: 2;
+    background-color: chartreuse;
+    border: 5px solid forestgreen;
+    color: firebrick;
+    width: 60%;
+    height: 60%;
+    margin: 10% 20%;
+}

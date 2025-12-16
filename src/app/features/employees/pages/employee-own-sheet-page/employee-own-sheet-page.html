@@ -1,0 +1,41 @@
+<loading-spinner></loading-spinner>
+
+<p>employee-own-sheet-page works!</p>
+
+@if (!!EmployeeDetails)
+{
+    <table>
+        <tr class="hidden">
+            <th class="hidden">Name</th>
+            <th class="hidden">Value</th>
+        </tr>
+        <tr>
+            <td class="data-title">{{"features.labels.firstname-label"|translate}}</td>
+            <td>{{ EmployeeDetails.user.firstName }}</td>
+        </tr>
+                <tr>
+            <td class="data-title">{{"features.labels.lastname-label"|translate}}</td>
+            <td>{{ EmployeeDetails.user.lastName }}</td>
+        </tr>
+        <tr>
+            <td class="data-title">{{"features.labels.email-label"|translate}}</td>
+            <td>{{ EmployeeDetails.user.email }}</td>
+        </tr>
+        <tr>
+            <td class="data-title">{{"features.labels.street-label"|translate}}</td>
+            <td>{{ EmployeeDetails.address.street }}, {{ EmployeeDetails.address.number }}</td>
+        </tr>
+        <tr>
+            <td class="data-title">{{"features.labels.city-label"|translate}}</td>
+            <td>{{ EmployeeDetails.address.city }} - {{ EmployeeDetails.address.postalCode }}</td>
+        </tr>
+        <tr>
+            <td class="data-title">{{"features.labels.country-label"|translate}}</td>
+            <td>{{ EmployeeDetails.address.country }}</td>
+        </tr>
+        <tr>
+            <td class="data-title">{{"features.labels.role-label"|translate}}</td>
+            <td>{{ role }}</td>
+        </tr>
+    </table>
+}

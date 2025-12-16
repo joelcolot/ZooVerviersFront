@@ -10,6 +10,11 @@ export * from './users/user-api-account.model'
 export * from './users/user-edit.model';
 export * from './users/user-register-form.model';
 
+//  Employee folder : 
+export * from './employees/employee-address.model';
+export * from './employees/employee-details.model';
+export * from './employees/employee-user.models';
+
 //  Others : 
 export * from './api-error.model';
 export * from './api-response.model'

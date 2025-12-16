@@ -13,4 +13,8 @@ export const routes: Routes = [
         //canActivate: [isAdminGuard],
         loadComponent: () => import('./pages/animals-details-page/animals-details-page').then(c => c.AnimalsDetailsPage)
     },
+    {
+        path: "creation",
+        loadComponent: () => import('./create-page/create-page').then(c => c.CreatePage),
+    },
 ]

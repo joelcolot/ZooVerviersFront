@@ -1,0 +1,8 @@
+<div class="modale">
+    <p>Vous êtes sur le point de supprimer : </p>
+    <p>{{ data() | json }}</p>
+    <p>Cette action est irréversible.</p>
+    <p>Êtes-vous sûr(e) de vouloir continuer ?</p>
+    <button (click)="onCancel()">Annuler</button>
+    <button (click)="onValidate()">Valider</button>
+</div>

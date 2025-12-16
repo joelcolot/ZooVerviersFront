@@ -50,11 +50,15 @@
             "owner-label": "Posedanto",
             "is-present-label": "Nuntempe ĉeestanta",
             "birth-label": "Naskiĝdato",
-            "age-label": "Aĝo"
+            "age-label": "Aĝo",
+            "street-label": "Strato kaj numero",
+            "city-label": "Urbo kaj poŝtkodo",
+            "country-label": "Lando"
         },
         "error":
         {
-            "not-found-page": "Aŭ ĉi tiu paĝo ne ekzistas, aŭ vi ne rajtas esti ĉi tie!"
+            "not-found-page": "Aŭ ĉi tiu paĝo ne ekzistas, aŭ vi ne rajtas esti ĉi tie!",
+            "forbidden-page": "Vi ne rajtas iri pluen!"
         }
     },
     "components":

@@ -28,14 +28,14 @@
     <div>
         <button (click)="editUserAccount()" [hidden]="isHidden">{{ "components.button.modify" | translate}}</button>
         <button [hidden]="isHidden" [disabled]="true">{{ "components.button.change-password" | translate}}</button>
-        <button (click)="deleteUserConfirmation()" [hidden]="isHidden">{{ "components.button.delete" | translate}}</button>
-        <div [hidden]="!isHidden">
-            <p>{{ "features.users.pages.my-account.confirm-deletion" | translate }}</p>
-            <label for="password">{{ "features.labels.password-label" | translate}}*: </label>
-            <input type="text">
-        </div>
-        <button (click)="cancelDeletion()" [hidden]="!isHidden">{{"components.button.cancel"|translate}}</button>
-        <button (click)="deleteUserDefinitive()" [hidden]="!isHidden">{{ "components.button.validate" | translate}}</button>
-        <p [hidden]="!isHidden">* Pas encore implémenté...</p>
     </div>
+
+    @if(isHidden)
+{
+    <app-validation-modal [data]="data" (confirmation)="toConfirm($event)"></app-validation-modal>
+}
+@else
+{
+    <button (click)="onDelete()">{{"components.button.delete"|translate}}</button>
+}
 }

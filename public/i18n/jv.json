@@ -50,11 +50,15 @@
             "owner-label": "Sing nduwèni",
             "is-present-label": "Saiki ana",
             "birth-label": "Tanggal lair",
-            "age-label": "Umur"
+            "age-label": "Umur",
+            "street-label": "Dalan lan nomer",
+            "city-label": "Kutha lan kode pos",
+            "country-label": "Negara"
         },
         "error":
         {
-            "not-found-page": "Kaca iki ora ana, utawa sampeyan ora duwe hak kanggo ana ing kene!"
+            "not-found-page": "Kaca iki ora ana, utawa sampeyan ora duwe hak kanggo ana ing kene!",
+            "forbidden-page": "Kowé ora diidini lunga luwih adoh!"
         }
     },
     "components":

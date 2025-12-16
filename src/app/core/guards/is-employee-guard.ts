@@ -3,15 +3,15 @@ import { CanActivateFn, Router } from '@angular/router';
 import { UserRole } from '@core/enums';
 import { AuthService } from '@core/services';
 
-export const isAdminGuard: CanActivateFn = (route, state) => {
+export const isEmployeeGuard: CanActivateFn = (route, state) => {
     const _auth = inject(AuthService);
     const _router = inject(Router);
     let isAllowed: boolean = true;
-    if (_auth.role()!=UserRole.Admin)
+    if (!_auth.isConnected() || _auth.role()==UserRole.Client)
     {
-        _router.navigate(["/", "error", "404"]);
         isAllowed=false;
+        _router.navigate(["/", "error", "403"]);
     }
-    console.log(isAllowed);
+    
     return isAllowed;
 };

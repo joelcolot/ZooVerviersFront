@@ -1,0 +1,32 @@
+<p>employee-management-page works!</p>
+
+<div>
+    <p>Liens animaux : </p>
+    <ul>
+        <li><a routerLink="/animals/creation">Créer animal</a></li>
+        <li><a routerLink="/animals/details/Leo">Modifier animal</a></li>
+    </ul>
+</div>
+<div>
+    <p>Liens utilisateurs : </p>
+    <ul>
+        <li>Voir utilisateur</li>
+        <li>Modifier utilisateur</li>
+    </ul>
+</div>
+<div>
+    <p><a routerLink="/employee/my-employee-account">Profil employé</a></p>
+    <div>
+        <p>Afficher un employé : </p>
+        @if(!displayEmployee)
+        {
+            <button (click)="onDisplayEmployee()">Afficher</button>
+        }
+        @else
+        {
+            <button (click)="onDisplayEmployee()">Cacher</button>
+            <input for="idEmployee" type="text">
+            <button routerLink="/employee/display-employee/{idEmployee}">Valider</button>
+        }
+    </div>
+</div>

@@ -4,10 +4,11 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { Spinner } from "@components/animation/spinner/spinner";
 import { userAccount } from '@core/models';
 import { AuthService, UserService } from '@core/services';
+import { ValidationModal } from "@components/modals/validation-modal/validation-modal";
 
 @Component({
   selector: 'app-my-account-view',
-  imports: [TranslatePipe, Spinner],
+  imports: [TranslatePipe, Spinner, ValidationModal],
   templateUrl: './my-account-view.html',
   styleUrl: './my-account-view.scss',
 })
@@ -16,9 +17,9 @@ export class MyAccountView implements OnInit
     private readonly _auth = inject(AuthService);
     private readonly _user = inject(UserService);
     private readonly _router = inject(Router);
-    //isConnected: boolean = this._authService.isConnected();
     myAccount: userAccount | null = null;
     isHidden: boolean = false;
+    data: string[]=[];
   
   
   
@@ -27,6 +28,7 @@ export class MyAccountView implements OnInit
         if (this._auth.isConnected())
         {
             this.myAccount = await this._auth.getAccount();
+            this.data=[this.myAccount?.firstName+"", this.myAccount?.lastName+""]
         }
         else
         {
@@ -37,18 +39,22 @@ export class MyAccountView implements OnInit
     {
         this._router.navigate(["/", "user", "edit"])
     }
-    deleteUserConfirmation()
-    {
-        this.isHidden=true;
-    }
-    cancelDeletion()
-    {
-        this.isHidden=false;
-    }
     deleteUserDefinitive()
     {
         this._user.deleteAccount("Test1234=");
         this._auth.logout();
         this._router.navigate(["/"]);
+    }
+    onDelete()
+    {     
+        this.isHidden=true;
+    }
+    toConfirm(confirmation: boolean)
+    {
+        this.isHidden=false;
+        if (confirmation)
+        {
+            this.deleteUserDefinitive();
+        }
     }
 }

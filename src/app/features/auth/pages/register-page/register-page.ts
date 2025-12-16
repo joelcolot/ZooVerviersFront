@@ -5,10 +5,11 @@ import { AuthService } from '@core/services';
 import { PasswordMatch } from '@core/validators/passwords-match.validator';
 import { strongPasswordValidator } from '@core/validators/strong-password.validator';
 import { TranslatePipe } from '@ngx-translate/core';
+import { Spinner } from "@components/animation/spinner/spinner";
 
 @Component({
   selector: 'app-register-page',
-  imports: [ReactiveFormsModule, TranslatePipe],
+  imports: [ReactiveFormsModule, TranslatePipe, Spinner],
   templateUrl: './register-page.html',
   styleUrl: './register-page.scss',
 })

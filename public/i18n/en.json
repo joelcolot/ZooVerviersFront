@@ -50,7 +50,15 @@
             "owner-label": "Owner",
             "is-present-label": "Currently present",
             "birth-label": "Birth date",
-            "age-label": "Age"
+            "age-label": "Age",
+            "street-label": "Street and number",
+            "city-label": "City and postal code",
+            "country-label": "Country"
+        },
+        "error":
+        {
+            "not-found-page": "This page doesn't exist or you don't have the rights to be here!",
+            "forbidden-page": "You are not allowed to go any further!"
         }
     },
     "components":
@@ -80,10 +88,6 @@
             "nav-item-toys": "Toys",
             "nav-item-employees": "Employees",
             "nav-item-users": "Users"
-        },
-        "error":
-        {
-            "not-found-page": "This page doesn't exist or you don't have the rights to be here!"
         }
     }
 }

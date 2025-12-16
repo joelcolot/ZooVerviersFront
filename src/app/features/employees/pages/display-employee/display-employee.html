@@ -1,0 +1,11 @@
+<p>display-employee works!</p>
+<p>Page d'un employé typique avec les infos structurées affichées.</p>
+@if(displaymodale)
+{
+    <app-validation-modal [data]="data" (confirmation)="toConfirm($event)"></app-validation-modal>
+}
+@else
+{
+    <button (click)="onFireEmployee()">Texte affiché</button>
+    <button (click)="onValidate()">Logique de suppression</button>
+}

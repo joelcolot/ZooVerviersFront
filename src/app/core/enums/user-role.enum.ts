@@ -1,11 +1,11 @@
 export enum UserRole {
 
   Admin = 'Admin',
-    Veterinarian = "veterinarian",
-    Director = "director",
-    Guide = "guide",
-    Treasurer = "treasurer",
-    Other = "other",
-    Client = "client",
-    User = "user"
+    Veterinarian = "Veterinarian",
+    Director = "Director",
+    Guide = "Guide",
+    Treasurer = "Treasurer",
+    Other = "Other",
+    Client = "Client",
+    User = "User"
 }

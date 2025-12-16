@@ -50,11 +50,15 @@
             "owner-label": "Propriétaire",
             "is-present-label": "Actuellement présent",
             "birth-label": "Date de naissance",
-            "age-label": "Âge"
+            "age-label": "Âge",
+            "street-label": "Rue et numéro",
+            "city-label": "Ville et code postal",
+            "country-label": "Pays"
         },
         "error":
         {
-            "not-found-page": "Soit cette page n'existe pas, soit vous n'avez pas le droit d'être ici !"
+            "not-found-page": "Soit cette page n'existe pas, soit vous n'avez pas le droit d'être ici !",
+            "forbidden-page": "Tu n'es pas autorisé à aller plus loin !"
         }
     },
     "components":
