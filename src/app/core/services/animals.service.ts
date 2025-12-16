@@ -1,6 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { AnimalSpecies, AnimalsListing, AnimalsDetails } from '@core/models';
+import { animalsCreate } from '@core/models/animals-create.model';
+import { AnimalsDetails } from '@core/models/animals-details.model';
+import { AnimalsListing } from '@core/models/animals-listing.model';
+import { animalsUpdate } from '@core/models/animals-update.model';
+import { AnimalSpecies } from '@core/models/animalspecies.model';
 import { environment } from '@env';
 import { firstValueFrom } from 'rxjs';
 
@@ -31,6 +35,13 @@ export class AnimalsService {
 
     return firstValueFrom(
       this._httpClient.get<AnimalsDetails>(environment.apiUrl + 'api/Animal/' + name)
+
+    );
+  }
+  getAnimalDetailsById(id: number) :Promise<AnimalsDetails> {
+
+    return firstValueFrom(
+      this._httpClient.get<AnimalsDetails>(environment.apiUrl + 'api/Animal/ById/' + id)
 
     );
   }
@@ -78,9 +89,26 @@ export class AnimalsService {
     return age + ' ' + (age > 1 ? 'ans' : 'an');
   }
 
-  createAnimal(animal: AnimalsDetails) : Promise<void> {
+  createAnimal(animal: animalsCreate) : Promise<void> {
 
-    return firstValueFrom(this._httpClient.post<void>(environment.apiUrl + 'api/Animal/Birth', animal));
+    
 
+    return firstValueFrom(this._httpClient.post<void>(environment.apiUrl + 'api/Animal/Create', animal));
+
+  }
+
+  modifyAnimal(id: number, animal: animalsUpdate): Promise<void> {
+    return firstValueFrom(
+      this._httpClient.patch<void>(
+        `${environment.apiUrl}api/Animal/Modification/${id}`,
+        animal
+      )
+    );
+  }
+
+  deleteAnimal(id: number) :Promise<void> {
+    return firstValueFrom(
+      this._httpClient.post<void>(environment.apiUrl + 'api/Animal/Delete', id)
+    )
   }
 }

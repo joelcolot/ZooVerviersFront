@@ -1,0 +1,73 @@
+<div class="page">
+  <form class="card" [formGroup]="createForm" (ngSubmit)="onSubmit()">
+
+    <h1>Créer un animal</h1>
+
+    <div class="form-group">
+      <label for="name">Nom</label>
+      <input id="name" type="text" formControlName="name" />
+      @if (name.touched && name.invalid) {
+        <span class="error">Le nom est requis</span>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="sex">Sexe</label>
+        <select id="sex" formControlName="sex">
+          @for (s of sexOptions; track s.value) {
+            <option [ngValue]="s.value">{{ s.label }}</option>
+          }
+        </select>
+    </div>
+
+    <div class="form-group">
+      <label for="speciesName">Espèce</label>
+      <select id="speciesName" formControlName="speciesName">
+        @for (sp of speciesList; track $index) {
+          <option [value]="sp.name">{{ sp.name }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="ownerName">Propriétaire</label>
+        <select formControlName="ownerId">
+          @for (o of ownerOptions; track o.value) {
+            <option [ngValue]="o.value">{{ o.label }}</option>
+          }
+        </select>
+      @if (ownerId.touched && ownerId.invalid) {
+        <span class="error">Le propriétaire est requis</span>
+      }
+    </div>
+
+    <div class="form-group checkbox">
+      <label>
+        <input type="checkbox" formControlName="isAvailable" />
+        Disponible
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="birthDate">Date de naissance</label>
+      <input id="birthDate" type="date" formControlName="birthDate" />
+      @if (birthDate.touched && birthDate.invalid) {
+        <span class="error">Date requise</span>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="ripDate">Date de décès</label>
+      <input id="ripDate" type="date" formControlName="ripDate" />
+    </div>
+
+    <button type="submit" [disabled]="createForm.invalid">
+      Enregistrer
+    </button>
+
+    @if (registerError) {
+      <p class="submit-error">{{ registerError }}</p>
+    }
+
+  </form>
+</div>

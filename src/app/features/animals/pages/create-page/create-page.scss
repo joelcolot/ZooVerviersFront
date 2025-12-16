@@ -1,0 +1,94 @@
+/* Centre la page */
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #f4f6f8;
+  padding-top: 10rem;
+}
+
+/* Carte */
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Titre */
+.card h1 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Groupes */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+
+/* Inputs */
+input,
+select {
+  padding: 0.6rem 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #3f51b5;
+}
+
+/* Checkbox */
+.form-group.checkbox {
+  flex-direction: row;
+  align-items: center;
+}
+
+.form-group.checkbox label {
+  font-weight: normal;
+}
+
+/* Erreurs */
+.error {
+  margin-top: 0.3rem;
+  color: #d32f2f;
+  font-size: 0.8rem;
+}
+
+/* Bouton */
+button {
+  width: 100%;
+  margin-top: 1.2rem;
+  padding: 0.7rem;
+  background: #3f51b5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #9fa8da;
+  cursor: not-allowed;
+}
+
+/* Erreur submit */
+.submit-error {
+  margin-top: 1rem;
+  text-align: center;
+  color: #d32f2f;
+}

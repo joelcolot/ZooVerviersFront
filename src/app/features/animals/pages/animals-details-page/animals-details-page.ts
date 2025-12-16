@@ -42,14 +42,12 @@ export class AnimalsDetailsPage {
       this.animal = response;
       this.age = this._animalsService.getAge(this.animal.birthDate);
 
-
-
       const speciesList = await this._animalsService.getAnimalSpecies();
       const species = speciesList.find(s => s.name === response.speciesName);
 
       this.description = species?.description;
 
-      
+      console.log(this.animal);
       
       this.animalError = null;
 

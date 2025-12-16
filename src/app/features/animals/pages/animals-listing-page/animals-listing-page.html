@@ -5,7 +5,7 @@
           <div class="container">
             
           <div class="row align-items-center border p-3 rounded">
-            <button class="btn btn-success" (click)="createAnimal()">{{"components.button.new-animal"|translate}}</button>
+            <button class="btn btn-success" [routerLink] = "['/animals/create']">Créer un nouvel animal</button>
           </div>
           </div>
 
@@ -35,9 +35,9 @@
               </div>
 
               <div class="col-4 text-end">
-              <button class="btn btn-primary mb-2" [routerLink] = "['/animals/details', animal.name]" >{{"components.button.details"|translate}}</button><br>
-              <button class="btn btn-secondary mb-2">{{"components.button.modify"|translate}}</button><br>
-              <button class="btn btn-danger">{{"components.button.delete"|translate}}</button>
+              <button class="btn btn-primary mb-2" [routerLink] = "['/animals/details', animal.name]" >Détails</button><br>
+              <button class="btn btn-secondary mb-2" [routerLink] = "['/animals/modify', animal.id]">Modifier</button><br>
+              <button class="btn btn-danger mb-2" [routerLink] = "['/animals/delete', animal.id]">Supprimer</button>
               </div>
 
           </div>
@@ -64,8 +64,8 @@
       </li>
 
       <!-- Suivant (toujours actif pour l’instant, à affiner quand tu auras total) -->
-      <li class="page-item" [class.disabled]="wrongsizePage">
-        <button class="page-link" (click)="goToPage(page + 1)">{{"components.button.next"|translate}}</button>
+      <li class="page-item" [class.disabled]="!hasNextPage">
+        <button class="page-link" (click)="goToPage(page + 1)">Suivant</button>
       </li>
     </ul>
   </nav>

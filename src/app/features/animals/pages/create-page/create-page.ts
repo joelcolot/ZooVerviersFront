@@ -1,0 +1,96 @@
+import { Component, inject } from '@angular/core';
+import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AnimalsService } from '@core/services/animals.service';
+import { AnimalSex } from '@core/enums/animals-sex';
+import { OwnerLabels, owners } from '@core/enums/owners.enum';
+import { KeyValuePipe } from '@angular/common';
+import { AnimalSpecies } from '@core/models/animalspecies.model';
+
+@Component({
+  selector: 'app-create-page',
+  imports: [ReactiveFormsModule, KeyValuePipe],
+  templateUrl: './create-page.html',
+  styleUrl: './create-page.scss',
+})
+export class CreatePage {
+
+  private readonly _fb = inject(FormBuilder);
+  private readonly _animalService = inject(AnimalsService);
+  private readonly _router = inject(Router); 
+
+  registerError :string = '';
+
+  
+  protected AnimalSex = AnimalSex;
+  public speciesList: AnimalSpecies[] = [];
+  protected owners = owners;
+  protected OwnerLabels = OwnerLabels;
+
+  sexOptions = Object.values(AnimalSex)
+  .filter((v): v is number => typeof v === 'number')
+  .map(v => ({ value: v, label: AnimalSex[v] as string }));
+
+  ownerOptions = Object.values(owners)
+  .filter((v): v is number => typeof v === 'number')
+  .map(v => ({ value: v, label: owners[v] as string }));
+
+  constructor() {
+    this.loadSpecies();
+  }
+
+  name = new FormControl('', [Validators.required]);
+  sex = new FormControl(0, [Validators.required]);
+  speciesName = new FormControl('', [Validators.required]);
+  ownerId = new FormControl<owners>(null!, [Validators.required]);
+  isAvailable = new FormControl(false, {
+    nonNullable: true,
+    validators: [Validators.required],
+  });
+  birthDate = new FormControl<string>('', {
+    nonNullable: true,
+    validators: [Validators.required],
+  });
+  ripDate = new FormControl<string>('', {
+    nonNullable: true,
+  });
+
+  createForm = this._fb.group({
+    name: this.name,
+    sex: this.sex,
+    speciesName: this.speciesName,
+    ownerId: this.ownerId,
+    isAvailable: this.isAvailable,
+    birthDate: this.birthDate,
+    ripDate: this.ripDate,
+  });
+
+  createError = '';
+
+  onSubmit() {
+
+    if (this.createForm.valid) {
+      const v = this.createForm.value;
+
+      const payload = {
+        Name: v.name!,
+        Sex: Number(v.sex),                // <-- blindage
+        SpeciesName: v.speciesName!,
+        OwnerId: Number(v.ownerId),        // <-- IMPORTANT: OwnerId (pas ownerId)
+        BirthDate: new Date(v.birthDate!).toISOString(),
+        RIPDate: v.ripDate ? new Date(v.ripDate).toISOString() : null,
+        IsAvailable: v.isAvailable!,       // seulement si l’API l’attend
+      };
+
+      this._animalService.createAnimal(payload as any);
+    }
+  }
+
+  private async loadSpecies() {
+  try {
+    this.speciesList = await this._animalService.getAnimalSpecies();
+  } catch (err) {
+    console.error('Erreur chargement espèces', err);
+  }
+}
+}

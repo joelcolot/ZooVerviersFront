@@ -1,12 +1,14 @@
 export interface AnimalsDetails {
-
+        id :number,
         name :string,
         sex :string,
-        description :string,
+        sexId :number,
+        description :string | null,
         speciesName :string,
         ownerName :string,
+        ownerId :number,
         isAvailable :boolean,
-        birthDate :Date,
-        age :string,
-        ripDate :Date,
+        birthDate :string,
+        age :string |null,
+        ripDate :string,
 }

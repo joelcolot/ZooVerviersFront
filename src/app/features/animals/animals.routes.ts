@@ -14,7 +14,15 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/animals-details-page/animals-details-page').then(c => c.AnimalsDetailsPage)
     },
     {
-        path: "creation",
-        loadComponent: () => import('./create-page/create-page').then(c => c.CreatePage),
+        path: 'create',
+        loadComponent: () => import('./pages/create-page/create-page').then(c => c.CreatePage)
+    },
+    {
+        path: 'modify/:id',
+        loadComponent: () => import('./pages/modify-page/modify-page').then(c => c.ModifyPage)
+    },
+    {
+        path: 'delete/:id',
+        loadComponent: () => import('./pages/delete-page/delete-page').then(c => c.DeletePage)
     },
 ]

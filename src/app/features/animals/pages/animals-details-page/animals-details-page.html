@@ -5,7 +5,6 @@
     <div class="card shadow-sm">
       <div class="row g-0">
 
-        <!-- Colonne gauche : photos -->
         <div class="col-md-5 border-end">
           <div class="p-3 text-center">
             <img
@@ -16,7 +15,6 @@
           </div>
         </div>
 
-        <!-- Colonne droite : infos -->
         <div class="col-md-7">
           <div class="card-body">
 
@@ -38,9 +36,12 @@
                 {{ description }}
               </p>
             }
-
-            <div class="d-flex gap-10">
-
+            <div class="d-flex">
+              <button class="btn btn-secondary mb-2" [routerLink] = "['/animals/modify', animal.id]">Modifier</button>
+              <button class="btn btn-danger mb-2" [routerLink] = "['/animals/delete', animal.id]">Supprimer</button>
+            </div>
+            <div class="d-flex">
+              
               <button class="btn btn-outline-secondary" [routerLink]="['/animals']">
                 ⟵ Retour à la liste
               </button>
