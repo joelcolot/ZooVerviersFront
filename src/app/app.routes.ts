@@ -21,6 +21,10 @@ export const routes: Routes = [
         loadChildren: () => import('./features/animals/animals.routes').then(z => z.routes)
     },
     {
+        path: "toys",
+        loadChildren: () => import('./features/toys/toys.routes').then(z => z.routes)
+    },
+    {
         path: "employee",
         canActivate: [isEmployeeGuard],
         loadChildren: () => import("./features/employees/employees.routes").then(z => z.routes),

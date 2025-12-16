@@ -35,6 +35,7 @@
     "@ngx-translate/http-loader": "^17.0.0",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.8",
+    "dayjs": "^1.11.19",
     "jwt-decode": "^4.0.0",
     "ngx-translate-messageformat-compiler": "^7.2.0",
     "rxjs": "~7.8.0",

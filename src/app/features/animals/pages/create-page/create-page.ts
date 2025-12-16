@@ -5,7 +5,8 @@ import { AnimalsService } from '@core/services/animals.service';
 import { AnimalSex } from '@core/enums/animals-sex';
 import { OwnerLabels, owners } from '@core/enums/owners.enum';
 import { KeyValuePipe } from '@angular/common';
-import { AnimalSpecies } from '@core/models/animalspecies.model';
+import { AnimalSpecies } from '@core/models/animals/animalspecies.model';
+import dayjs from 'dayjs';
 
 @Component({
   selector: 'app-create-page',
@@ -26,6 +27,7 @@ export class CreatePage {
   public speciesList: AnimalSpecies[] = [];
   protected owners = owners;
   protected OwnerLabels = OwnerLabels;
+  charCount :number = 0;
 
   sexOptions = Object.values(AnimalSex)
   .filter((v): v is number => typeof v === 'number')
@@ -47,13 +49,14 @@ export class CreatePage {
     nonNullable: true,
     validators: [Validators.required],
   });
-  birthDate = new FormControl<string>('', {
+  birthDate = new FormControl<string>(dayjs().format('YYYY-MM-DD'), {
     nonNullable: true,
     validators: [Validators.required],
   });
   ripDate = new FormControl<string>('', {
     nonNullable: true,
   });
+  description = new FormControl('', [Validators.maxLength(1000)]);
 
   createForm = this._fb.group({
     name: this.name,
@@ -63,6 +66,7 @@ export class CreatePage {
     isAvailable: this.isAvailable,
     birthDate: this.birthDate,
     ripDate: this.ripDate,
+    description: this.description,
   });
 
   createError = '';
@@ -74,12 +78,13 @@ export class CreatePage {
 
       const payload = {
         Name: v.name!,
-        Sex: Number(v.sex),                // <-- blindage
+        Sex: Number(v.sex),
         SpeciesName: v.speciesName!,
-        OwnerId: Number(v.ownerId),        // <-- IMPORTANT: OwnerId (pas ownerId)
+        OwnerId: Number(v.ownerId), 
         BirthDate: new Date(v.birthDate!).toISOString(),
         RIPDate: v.ripDate ? new Date(v.ripDate).toISOString() : null,
-        IsAvailable: v.isAvailable!,       // seulement si l’API l’attend
+        IsAvailable: v.isAvailable!,
+        Description: v.description,
       };
 
       this._animalService.createAnimal(payload as any);
@@ -93,4 +98,11 @@ export class CreatePage {
     console.error('Erreur chargement espèces', err);
   }
 }
+
+updateCount() {
+  const value = this.createForm.get('description')?.value || '';
+  this.charCount = value.length;
 }
+}
+
+

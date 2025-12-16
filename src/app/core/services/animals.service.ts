@@ -1,10 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { animalsCreate } from '@core/models/animals-create.model';
-import { AnimalsDetails } from '@core/models/animals-details.model';
-import { AnimalsListing } from '@core/models/animals-listing.model';
+import { animalsCreate, AnimalsDetails, AnimalsListing } from '@core/models';
+import { AnimalSpecies } from '@core/models/animals/animalspecies.model';
 import { animalsUpdate } from '@core/models/animals-update.model';
-import { AnimalSpecies } from '@core/models/animalspecies.model';
 import { environment } from '@env';
 import { firstValueFrom } from 'rxjs';
 
@@ -68,25 +66,6 @@ export class AnimalsService {
     });
 
     return this._speciesPromise;
-  }
-
-  getAge(birthDate: string | Date): string {
-    const dob = new Date(birthDate);
-    const today = new Date();
-
-    let age = today.getFullYear() - dob.getFullYear();
-    const monthDiff = today.getMonth() - dob.getMonth();
-    const dayDiff = today.getDate() - dob.getDate();
-
-    if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
-      age--;
-    }
-
-    if (age <= 0) {
-      return '< 1 an';
-    }
-
-    return age + ' ' + (age > 1 ? 'ans' : 'an');
   }
 
   createAnimal(animal: animalsCreate) : Promise<void> {

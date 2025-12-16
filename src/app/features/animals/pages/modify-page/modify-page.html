@@ -19,6 +19,20 @@
           }
         </select>
     </div>
+    
+    <label for="description">Description</label>
+
+    <textarea
+      id="description"
+      rows="8"
+      maxlength="1000"
+      formControlName="description"
+      (input)="updateCount()"
+    ></textarea>
+
+    <div class="counter">
+      {{ charCount }} / 1000 caractères
+    </div>
 
     <div class="form-group">
       <label for="speciesName">Espèce</label>

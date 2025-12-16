@@ -92,3 +92,21 @@ button:disabled {
   text-align: center;
   color: #d32f2f;
 }
+
+textarea {
+  width: 100%;
+  min-height: 180px;
+  padding: 12px;
+  font-size: 16px;
+  resize: vertical;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}
+
+.counter {
+  text-align: right;
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}

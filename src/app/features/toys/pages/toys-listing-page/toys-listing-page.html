@@ -1,0 +1,109 @@
+<loading-spinner></loading-spinner>
+
+@if (toys != null) {
+  <ul>
+
+      @for (toy of toys; track id) {
+          
+          <div class="container">
+          
+          <div class="row align-items-center border p-3 rounded">
+
+              
+              <div class="col-3">
+              <img [src]="'https://localhost:7039/pictures/' + toy.name + '_1.jpg'" class="img-fluid rounded" alt="Jouet">
+              </div>
+
+              <div class="col-5">
+              <ul class="list-group">
+                  <li class="list-group-item d-flex justify-content-between">
+                  <span> {{ toy.id }} </span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                  <span>{{ toy.speciesName }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                  <span>{{ toy.name }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                  <span>{{ toy.description }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                  <span>{{ toy.minimumAmountperDonation }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                  <span>{{ toy.wishedTotalAmount }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                  <span>{{ toy.startDate }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                  <span>{{ toy.enddate }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                  <span>{{ toy.status }}</span>
+                  </li>    
+                  <li class="list-group-item d-flex justify-content-between">
+                  <span>{{ toy.totalAmountSoFar }}</span>
+                  </li>            
+
+
+              </ul>
+              </div>
+
+              <div class="col-4 text-end">
+              <button class="btn btn-primary mb-2" [routerLink] = "['/animals/details', toy.name]" >Contribuer</button><br>
+              </div>
+
+          </div>
+          </div>
+      }
+  </ul>
+}
+<div class="d-flex justify-content-center align-items-center mt-3 w-100">
+
+  <!-- Pagination à gauche / centre -->
+  <nav aria-label="Pagination" class="me-3">
+    <ul class="pagination mb-0">
+
+      <!-- Précédent -->
+      <li class="page-item" [class.disabled]="page === 1">
+        <button class="page-link" (click)="goToPage(page - 1)">Précédent</button>
+      </li>
+
+      <!-- Page courante -->
+      <li class="page-item active">
+        <span class="page-link">
+          {{ page }}
+        </span>
+      </li>
+
+
+      <li class="page-item" [class.disabled]="!hasNextPage">
+        <button class="page-link" (click)="goToPage(page + 1)">Suivant</button>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Nb par page à droite -->
+  <div class="d-flex align-items-center">
+    <label class="me-2"># jouets par page</label>
+    <select
+      class="form-select form-select-sm w-auto"
+      [value]="pageSize"
+      (change)="changePageSize($event)">
+      @for (opt of pageSizeOptions; track opt) {
+        <option [value]="opt">{{ opt }}</option>
+      }
+    </select>
+  </div>
+
+</div>
+
+
+
+<!-- } @else if (animalsError) {
+  <p>{{ animalsError }}</p>
+} @else {
+  <p>Loading animals...</p>
+} -->

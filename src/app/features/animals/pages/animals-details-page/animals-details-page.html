@@ -31,9 +31,9 @@
               {{"features.labels.birth-label"|translate}}: {{animal.birthDate | date:'dd/MM/yyyy' }} <br />
               {{"features.labels.age-label"|translate}}: {{age}} <br /><br />
 
-            @if (description) {
+            @if (animal.description) {
               <p class="card-text mb-3">
-                {{ description }}
+                {{ animal.description }}
               </p>
             }
             <div class="d-flex">

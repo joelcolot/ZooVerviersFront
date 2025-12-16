@@ -5,6 +5,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { Spinner } from "@components/animation/spinner/spinner";
 import { AnimalsDetails, ApiError } from '@core/models';
 import { AnimalsService } from '@core/services';
+import { getAge } from '@core/utils/utils';
 
 @Component({
   selector: 'app-animals-details-page',
@@ -40,12 +41,12 @@ export class AnimalsDetailsPage {
       
       const response = await this._animalsService.getAnimalDetails(name);
       this.animal = response;
-      this.age = this._animalsService.getAge(this.animal.birthDate);
+      this.age = getAge(this.animal.birthDate);
 
       const speciesList = await this._animalsService.getAnimalSpecies();
       const species = speciesList.find(s => s.name === response.speciesName);
 
-      this.description = species?.description;
+      //this.description = species?.description;
 
       console.log(this.animal);
       
