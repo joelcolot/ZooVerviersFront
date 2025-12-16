@@ -1,5 +1,5 @@
 export interface AnimalsDetails {
-
+        id :number,
         name :string,
         sex :string,
         sexId :number,

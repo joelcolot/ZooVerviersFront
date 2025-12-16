@@ -19,5 +19,8 @@ export const routes: Routes = [
         path: 'modify/:id',
         loadComponent: () => import('./pages/modify-page/modify-page').then(c => c.ModifyPage)
     },
-
+    {
+        path: 'delete/:id',
+        loadComponent: () => import('./pages/delete-page/delete-page').then(c => c.DeletePage)
+    },
 ]

@@ -93,7 +93,7 @@ export class AnimalsService {
 
     
 
-    return firstValueFrom(this._httpClient.post<void>(environment.apiUrl + 'api/Animal/Birth', animal));
+    return firstValueFrom(this._httpClient.post<void>(environment.apiUrl + 'api/Animal/Create', animal));
 
   }
 
@@ -104,5 +104,11 @@ export class AnimalsService {
         animal
       )
     );
+  }
+
+  deleteAnimal(id: number) :Promise<void> {
+    return firstValueFrom(
+      this._httpClient.post<void>(environment.apiUrl + 'api/Animal/Delete', id)
+    )
   }
 }

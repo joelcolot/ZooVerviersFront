@@ -35,9 +35,12 @@
                 {{ description }}
               </p>
             }
-
-            <div class="d-flex gap-10">
-
+            <div class="d-flex">
+              <button class="btn btn-secondary mb-2" [routerLink] = "['/animals/modify', animal.id]">Modifier</button>
+              <button class="btn btn-danger mb-2" [routerLink] = "['/animals/delete', animal.id]">Supprimer</button>
+            </div>
+            <div class="d-flex">
+              
               <button class="btn btn-outline-secondary" [routerLink]="['/animals']">
                 ⟵ Retour à la liste
               </button>

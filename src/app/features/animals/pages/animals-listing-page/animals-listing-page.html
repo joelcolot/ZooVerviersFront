@@ -36,8 +36,8 @@
 
               <div class="col-4 text-end">
               <button class="btn btn-primary mb-2" [routerLink] = "['/animals/details', animal.name]" >Détails</button><br>
-              <button class="btn btn-secondary mb-2" [routerLink] = "['/animals/modify', id]">Modifier</button><br>
-              <button class="btn btn-danger">Supprimer</button>
+              <button class="btn btn-secondary mb-2" [routerLink] = "['/animals/modify', animal.id]">Modifier</button><br>
+              <button class="btn btn-danger mb-2" [routerLink] = "['/animals/delete', animal.id]">Supprimer</button>
               </div>
 
           </div>
