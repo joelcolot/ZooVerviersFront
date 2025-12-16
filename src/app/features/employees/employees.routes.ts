@@ -19,6 +19,11 @@ export const routes: Routes = [
         loadComponent: () => import("./pages/display-employee/display-employee").then(y => y.DisplayEmployee),
     },
     {
+        path: "hire/new",
+        canActivate: [isAdminGuard],
+        loadComponent: () => import('./pages/hire-new-employee/hire-new-employee').then(y => y.HireNewEmployee),
+    },
+    {
         path: "fire-employee/:id",
         canActivate: [isAdminGuard],
         loadComponent: () => import("./pages/fire-employee/fire-employee").then(y => y.FireEmployee),
