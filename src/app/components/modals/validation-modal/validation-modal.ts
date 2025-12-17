@@ -11,7 +11,7 @@ export class ValidationModal {
     //  Essayer d'avoir une modale s'adaptant selon le nombre d'informations qu'elle reçoit.
     //  Elle reçoit un json ou un tableau et ensuite elle affiche le résumé de la donnée à supprimer.
     //idData = input<number>();
-    data = input<string[]>();
+    data = input();
     confirmation = output<boolean>();
     //  output booléen pour savoir si validé ou non.
 

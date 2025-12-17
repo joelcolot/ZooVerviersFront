@@ -2,14 +2,14 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AnimalsService } from '@core/services/animals.service';
-import { AnimalSex } from '@core/enums/animals-sex';
-import { OwnerLabels, owners } from '@core/enums/owners.enum';
 import { KeyValuePipe } from '@angular/common';
-import { AnimalSpecies } from '@core/models/animalspecies.model';
+import { AnimalSpecies } from '@core/models';
+import { TranslatePipe } from '@ngx-translate/core';
+import { AnimalSex, owners, OwnerLabels } from '@core/enums';
 
 @Component({
   selector: 'app-create-page',
-  imports: [ReactiveFormsModule, KeyValuePipe],
+  imports: [ReactiveFormsModule, KeyValuePipe, TranslatePipe],
   templateUrl: './create-page.html',
   styleUrl: './create-page.scss',
 })

@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Spinner } from "@components/animation/spinner/spinner";
 import { AnimalsDetails, ApiError } from '@core/models';
@@ -15,6 +15,7 @@ import { AnimalsService } from '@core/services';
 export class AnimalsDetailsPage {
 
   private readonly _route = inject(ActivatedRoute);
+  private readonly _router = inject(Router);
   private readonly _animalsService = inject(AnimalsService);
 
   
@@ -30,7 +31,6 @@ export class AnimalsDetailsPage {
     this._route.params.subscribe(params => {
       const name = params['name'] as string;
       this.getAnimalDetails(name);
-
     });
   }
 

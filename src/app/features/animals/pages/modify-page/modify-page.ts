@@ -3,10 +3,8 @@ import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angu
 import { ActivatedRoute, Router } from '@angular/router';
 import { AnimalSex } from '@core/enums/animals-sex';
 import { OwnerLabels, owners } from '@core/enums/owners.enum';
-import { ApiError } from '@core/models';
-import { AnimalsDetails } from '@core/models/animals-details.model';
-import { AnimalSpecies } from '@core/models/animalspecies.model';
-import { AnimalsService } from '@core/services/animals.service';
+import { AnimalsDetails, AnimalSpecies, ApiError } from '@core/models';
+import { AnimalsService } from '@core/services';
 
 @Component({
   selector: 'app-modify-page',

@@ -7,6 +7,7 @@ export interface EmployeeDetails
     address: EmployeeAddress;
     user: EmployeeUser;
     role: UserRole;
+    employeeType: string;
     startDate: Date;
     endDate: Date|null;
 }
