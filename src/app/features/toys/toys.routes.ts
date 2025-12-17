@@ -9,7 +9,7 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/toys-listing-page/toys-listing-page').then(c => c.ToysListingPage)
     },
     {
-        path: 'donate/:toyid/:userid',
+        path: 'donate/:id',
         loadComponent: () => import('./pages/toys-donation-page/toys-donation-page').then(c => c.ToysDonationPage)
     },
 ]

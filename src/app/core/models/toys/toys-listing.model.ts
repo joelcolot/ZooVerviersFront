@@ -1,3 +1,5 @@
+import { ToyStatus } from "@core/enums/toys-status";
+
 export interface ToysListing {
     id :number,
     speciesName :string,
@@ -7,7 +9,7 @@ export interface ToysListing {
     minimumAmountperDonation : number,
     wishedTotalAmount :number,
     startDate :string,
-    enddate :string | null,
-    status :number,
+    endDate :string | null,
+    status :ToyStatus,
     totalAmountSoFar :number,
 }

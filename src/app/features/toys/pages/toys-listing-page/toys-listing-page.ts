@@ -1,14 +1,16 @@
+import { CurrencyPipe, DatePipe } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Spinner } from "@components/animation/spinner/spinner";
+import { ToyStatus, ToyStatusLabel } from '@core/enums/toys-status';
 import { ApiError } from '@core/models';
-import { ToysListing } from '@core/models/toys/toys-listing.model';
+import { ToysListing  } from '@core/models/toys/toys-listing.model';
 import { ToysService } from '@core/services/toys.service';
 
 @Component({
   selector: 'app-toys-listing-page',
-  imports: [Spinner, RouterModule],
+  imports: [Spinner, RouterModule, CurrencyPipe, DatePipe],
   templateUrl: './toys-listing-page.html',
   styleUrl: './toys-listing-page.scss',
 })
@@ -20,7 +22,8 @@ export class ToysListingPage implements OnInit{
 
 toys: ToysListing[] | null = null;
 toysError: string | null = null;
-
+ToyStatus = ToyStatus;
+ToyStatusLabel = ToyStatusLabel;
 
 
 id :number = 1;
@@ -36,6 +39,7 @@ ngOnInit(): void {
     this.pageSize = Number(qp['pageSize']) || 5;
 
   this.getToys();
+  
 }
 
 async getToys(): Promise<void> {
@@ -53,6 +57,7 @@ async getToys(): Promise<void> {
     
 
     this.toysError = null;
+    console.log(this.toys);
   } catch (err) {
     console.error(err);
     this.toys = null;
