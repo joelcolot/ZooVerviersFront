@@ -3,8 +3,8 @@
 <div>
     <p>Liens animaux : </p>
     <ul>
-        <li><a routerLink="/animals/creation">Créer animal</a></li>
-        <li><a routerLink="/animals/details/Leo">Modifier animal</a></li>
+        <li><a routerLink="/animals/create">Créer animal</a></li>
+        <li><a routerLink="/animals/modify/1">Modifier animal</a></li>
     </ul>
 </div>
 <div>
@@ -17,7 +17,7 @@
 <div>
     <p><a routerLink="/employee/my-employee-account">Profil employé</a></p>
     <div>
-        <p>Afficher un employé : </p>
+        <p>Trouver un employé : </p>
         @if(!displayEmployee)
         {
             <button (click)="onDisplayEmployee()">Afficher</button>
@@ -25,8 +25,8 @@
         @else
         {
             <button (click)="onDisplayEmployee()">Cacher</button>
-            <input for="idEmployee" type="text">
-            <button routerLink="/employee/display-employee/{idEmployee}">Valider</button>
+            <input [(ngModel)]="idView" type="number">
+            <button (click)="onViewEmployee(idView)" routerLink="/employee/display-employee/{{idView}}">Chercher</button>
         }
     </div>
     <button routerLink="/employee/hire/new">Engager nouvel employé.</button>

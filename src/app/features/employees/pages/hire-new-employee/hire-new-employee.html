@@ -1,1 +1,54 @@
-<p>hire-new-employee works!</p>
+<loading-spinner></loading-spinner>
+
+<form [formGroup]="hireEmployee" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="firstName">Prénom</label>
+        <input type="text" formControlName="firstName">
+    </div>
+    <div>
+        <label for="lastName">Nom</label>
+        <input type="text" formControlName="lastName">
+    </div>
+    <div>
+        <label for="startDate">Date de départ</label>
+        <input type="date" formControlName="startDate">
+    </div>
+    <div>
+        <label for="endDate">Date de fin</label>
+        <input type="date" formControlName="endDate">
+    </div>
+    <div>
+        <label for="employeeId">Type d'emploi</label>
+        <input type="number" formControlName="employeeId">
+    </div>
+        <div>
+        <label for="email">Courrier électronique</label>
+        <input type="email" formControlName="email">
+    </div>
+    <div>
+        <label for="password">Mot de passe</label>
+        <input type="password" formControlName="password">
+    </div>
+    <div>
+        <label for="street">Nom de rue</label>
+        <input type="text"formControlName="street" >
+    </div>
+    <div>
+        <label for="number">numéro de maison</label>
+        <input type="number" formControlName="number">
+    </div>
+    <div>
+        <label for="city">Ville</label>
+        <input type="text" formControlName="city">
+    </div>
+    <div>
+        <label for="postalCode">Code postal</label>
+        <input type="number" formControlName="postalCode">
+    </div>
+    <div>
+        <label for="country">Pays</label>
+        <input type="text" formControlName="country">
+    </div>
+  <button type="submit">{{ "components.button.validate" | translate }}</button>
+</form>
+<button routerLink="/employee">Retour en arrière</button>

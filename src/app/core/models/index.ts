@@ -13,6 +13,7 @@ export * from './users/user-register-form.model';
 //  Employee folder : 
 export * from './employees/employee-address.model';
 export * from './employees/employee-details.model';
+export * from './employees/employee-full-details.model'
 export * from './employees/employee-user.models';
 
 //  Others : 
